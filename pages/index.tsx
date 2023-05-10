@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"
 import Head from "next/head"
 import Navbar from "../components/Navbar"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], variable: "--inter-sans" })
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
           // <a target="_blank" href="https://icons8.com/icon/44049/shop">Shop</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         />
       </Head>
-      <main>
+      <main className={`${inter.variable} font-sans`}>
         <Navbar />
       </main>
     </>

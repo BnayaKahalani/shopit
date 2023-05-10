@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .navbarHover {
+    @apply h-12 px-5 rounded-full bg-transparent flex items-center gap-2 hover:bg-amber-400 duration-300 cursor-pointer;
+  }
+}
