@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Inter } from "next/font/google"
 import Head from "next/head"
 import Navbar from "../components/Navbar"
+import Banner from "@/components/Banner"
 
 const inter = Inter({ subsets: ["latin"], variable: "--inter-sans" })
 
@@ -26,6 +27,7 @@ export default function Home() {
       </Head>
       <main className={`${inter.variable} font-sans`}>
         <Navbar />
+        <Banner />
       </main>
     </>
   )
