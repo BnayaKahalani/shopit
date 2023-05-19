@@ -25,9 +25,11 @@ export default function Home() {
           // <a target="_blank" href="https://icons8.com/icon/44049/shop">Shop</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         />
       </Head>
-      <main className={`${inter.variable} font-sans`}>
+      <main className={`bg-amber-200 ${inter.variable} font-sans`}>
         <Navbar />
-        <Banner />
+        <div className='max-w-contentContainer mx-auto'>
+          <Banner />
+        </div>
       </main>
     </>
   )
