@@ -1,5 +1,8 @@
+import { sliderImgOne } from "@/public/assets/images"
+import Image from "next/image"
 import React from "react"
 import Slider from "react-slick"
+import BannerText from "./BannerText"
 
 const Banner = () => {
   const settings = {
@@ -13,23 +16,17 @@ const Banner = () => {
     <div className='w-full bg-white px-4 py-6 font-titleFont flex gap-4 border-b-[1px]'>
       <div className='w-2/3 rounded-lg h-[410px] shadow-bannerShadow relative'>
         <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
+          <div className='w-full h-[410px] relative'>
+            <Image
+              src={sliderImgOne}
+              alt='sliderImgOne'
+              priority
+            />
+            <BannerText
+              title='Summer Vibes Unleashed!'
+              description='Embrace the Sun-kissed Style'
+              btnText='SHOP NOW'
+            />
           </div>
         </Slider>
       </div>
