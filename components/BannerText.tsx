@@ -1,8 +1,13 @@
-import React from "react"
+interface Props {
+  title: string
+  description: string
+  btnText: string
+  className: string
+}
 
-const BannerText = ({ title, description, btnText }) => {
+const BannerText = ({ title, description, btnText, className }: Props) => {
   return (
-    <div className='absolute w-60 h-full top-0 left-4 flex flex-col gap-3 text-white'>
+    <div className={className}>
       <h1 className='font-bold text-2xl'>{title}</h1>
       <p className='text-sm leading-5'>{description}</p>
       <button className='bg-white text-sm text-black font-semibold rounded-full w-24 h-8 border-[1px]'>

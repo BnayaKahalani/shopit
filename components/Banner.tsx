@@ -6,7 +6,7 @@ import BannerText from "./BannerText"
 
 const Banner = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -23,6 +23,7 @@ const Banner = () => {
               priority
             />
             <BannerText
+              className='absolute w-60 h-full top-6 left-4 flex flex-col gap-3 text-white'
               title='Summer Vibes Unleashed!'
               description='Embrace the Sun-kissed Style'
               btnText='SHOP NOW'
