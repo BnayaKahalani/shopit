@@ -1,8 +1,9 @@
-import { sliderImgOne } from "@/public/assets/images"
+import { bannerImg, sliderImgOne } from "@/public/assets/images"
 import Image from "next/image"
 import React from "react"
 import Slider from "react-slick"
 import BannerText from "./BannerText"
+import ButtonPrimary from "./ButtonPrimary"
 
 const Banner = () => {
   const settings = {
@@ -31,7 +32,25 @@ const Banner = () => {
           </div>
         </Slider>
       </div>
-      <div className='w-1/3 border-[1px] border-gray-200 rounded-lg shadow-bannerShadow p-4 flex flex-col justify-between'></div>
+      <div className='w-1/3 border-[1px] border-gray-200 rounded-lg shadow-bannerShadow p-4 flex flex-col justify-between'>
+        <div className='flex items-center justify-between'>
+          <h2 className='text-xl font-semibold text-black'>Pick of the day</h2>
+          <p className='text-base text-zinc-600 underline underline-offset-2'>View all</p>
+        </div>
+        <Image
+          className='h-60 object-cover'
+          src={bannerImg}
+          alt='bannerImg'
+        />
+        <ButtonPrimary btnText='Options' />
+        <p
+          className='text-lg text-black font-sem
+        '
+        >
+          From $50
+        </p>
+        <p className='text-base text-gray-500 -mt-1'>TV for your living room</p>
+      </div>
     </div>
   )
 }
