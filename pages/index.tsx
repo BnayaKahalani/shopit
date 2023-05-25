@@ -3,10 +3,16 @@ import { Inter } from "next/font/google"
 import Head from "next/head"
 import Navbar from "../components/Navbar"
 import Banner from "@/components/Banner"
+import { Product } from "../type"
+
+interface Props {
+  productData: Product
+}
 
 const inter = Inter({ subsets: ["latin"], variable: "--inter-sans" })
 
-export default function Home() {
+export default function Home({ productData }: Props) {
+  console.log(productData)
   return (
     <>
       <Head>
@@ -33,4 +39,12 @@ export default function Home() {
       </main>
     </>
   )
+}
+
+export const getServerSideProps = async () => {
+  const productData = await (await fetch("http://localhost:3000/api/productdata")).json()
+
+  return {
+    props: { productData },
+  }
 }
