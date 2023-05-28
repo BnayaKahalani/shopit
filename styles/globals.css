@@ -7,7 +7,7 @@
     @apply h-12 px-5 rounded-full bg-transparent flex items-center gap-2 duration-300 cursor-pointer;
   }
   .navbarHover {
-    @apply h-12 px-5 rounded-full bg-transparent flex items-center gap-2 hover:bg-amber-600 duration-300 cursor-pointer;
+    @apply h-12 px-5 rounded-full bg-transparent flex items-center gap-2 hover:bg-primary_hover duration-300 cursor-pointer;
   }
   .bottomNavLi {
     @apply hover:underline underline-offset-2 cursor-pointer decoration-[1px] duration-200;

@@ -10,3 +10,15 @@ export interface Product {
   category: string
 }
 ;[]
+
+export interface Item {
+  _id: number
+  title: string
+  description: string
+  category: string
+  brand: string
+  image: string
+  isNew: boolean
+  oldPrice: number
+  price: number
+}

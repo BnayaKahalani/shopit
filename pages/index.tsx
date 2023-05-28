@@ -32,7 +32,7 @@ export default function Home({ productData }: Props) {
           // <a target="_blank" href="https://icons8.com/icon/44049/shop">Shop</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         />
       </Head>
-      <main className={`bg-amber-200 ${inter.variable} font-sans`}>
+      <main className={`${inter.variable} font-sans`}>
         <Navbar />
         <div className='max-w-contentContainer mx-auto'>
           <Banner />

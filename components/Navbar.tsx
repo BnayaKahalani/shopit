@@ -8,7 +8,7 @@ import NavbarBottom from "./NavbarBottom"
 
 const Navbar = () => {
   return (
-    <div className='w-full bg-amber-500 text-white'>
+    <div className='w-full bg-primary text-white'>
       <div className='w-full h-full border-b-[1px] border-b-white'>
         <div className='max-w-container mx-auto h-20 px-4 flex items-center gap-2'>
           <div className='navbar'>
@@ -59,7 +59,7 @@ const Navbar = () => {
               <h2 className='text-base font-semibold -mt-1'>Account</h2>
             </div>
           </div>
-          <div className='flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-amber-600 duration-300 relative'>
+          <div className='flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-primary_hover duration-300 relative'>
             <BsCart2 className='text-2xl' />
             <p className='text-[10px]'>$0.00</p>
             <span className='absolute w-4 h-4 bg-red-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs'>
