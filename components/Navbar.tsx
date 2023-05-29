@@ -8,7 +8,7 @@ import NavbarBottom from "./NavbarBottom"
 
 const Navbar = () => {
   return (
-    <div className='w-full bg-primary text-white'>
+    <div className='w-full bg-primary text-white sticky top-0 z-10'>
       <div className='w-full h-full border-b-[1px] border-b-white'>
         <div className='max-w-container mx-auto h-20 px-4 flex items-center gap-2'>
           <div className='navbar'>

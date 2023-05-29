@@ -34,9 +34,6 @@ module.exports = {
       colors: {
         primary: "#F59E0B",
         primary_hover: "#D97706",
-        amazon_blue: "#131921",
-        amazon_light: "#232F3E",
-        amazon_yellow: "#febd69",
         whiteText: "#ffffff",
         lightText: "#ccc",
         quantity_box: "#F0F2F2",

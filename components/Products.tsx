@@ -2,6 +2,7 @@ import React from "react"
 import { Item } from "../type"
 import Image from "next/image"
 import { GoPlus } from "react-icons/go"
+import { BsStarFill } from "react-icons/bs"
 
 const Products = ({ productData }: any) => {
   return (
@@ -38,6 +39,18 @@ const Products = ({ productData }: any) => {
             <div className='flex items-center gap-3'>
               <p className='font-titleFont text-lg text-green-700 font-semibold'>Now ${item.price}</p>
               <p className='text-gray-500 line-through decoration'>${item.oldPrice}</p>
+            </div>
+            <p className='font-titleFont text-lg font-semibold py-2'>{item.title.substring(0, 25)}</p>
+            <p className='text-base text-zinc-500'>{item.description.substring(0, 80)}...</p>
+          </div>
+          <div className='flex gap-2 items-center justify-between text-sm mt-2'>
+            <div className='flex text-sm gap-1'>
+              <BsStarFill />
+              <BsStarFill />
+              <BsStarFill />
+              <BsStarFill />
+              <BsStarFill />
+              <p>25</p>
             </div>
           </div>
         </div>

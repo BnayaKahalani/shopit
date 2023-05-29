@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar"
 import Banner from "@/components/Banner"
 import { Product } from "../type"
 import Products from "@/components/Products"
+import Footer from "@/components/Footer"
+import TopFooter from "@/components/TopFooter"
 
 interface Props {
   productData: Product
@@ -38,6 +40,8 @@ export default function Home({ productData }: Props) {
           <Banner />
           <Products productData={productData} />
         </div>
+        <TopFooter />
+        <Footer />
       </main>
     </>
   )
