@@ -1,3 +1,5 @@
+//1.42
+
 const Footer = () => {
   return (
     <div className='w-full bg-primary text-white pt-4 pb-6'>

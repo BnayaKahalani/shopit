@@ -15,7 +15,6 @@ interface Props {
 const inter = Inter({ subsets: ["latin"], variable: "--inter-sans" })
 
 export default function Home({ productData }: Props) {
-  console.log(productData)
   return (
     <>
       <Head>
@@ -35,13 +34,11 @@ export default function Home({ productData }: Props) {
         />
       </Head>
       <main className={`${inter.variable} font-sans`}>
-        <Navbar />
         <div className='max-w-contentContainer mx-auto'>
           <Banner />
           <Products productData={productData} />
         </div>
         <TopFooter />
-        <Footer />
       </main>
     </>
   )
