@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import { IoMdHeartEmpty } from "react-icons/io"
 import { BsStarFill, BsInfoCircle } from "react-icons/bs"
-import { ship1Img } from "@/public/assets/images"
+import { ship1Img, ship2Img, ship3Img } from "@/public/assets/images"
 
 const ProductDetails = () => {
   const router = useRouter()
@@ -22,8 +22,8 @@ const ProductDetails = () => {
         <div className='w-2/3 h-full flex items-center justify-center overflow-hidden relative'>
           <Image
             className='w-[80%] transform-origin-top-left curso-move duration-500'
-            width={250}
-            height={250}
+            width={1000}
+            height={1000}
             src={product.image}
             alt='productImg'
           />
@@ -79,18 +79,43 @@ const ProductDetails = () => {
                 </button>
               </div>
               <div>
-                <p className=''>How do you want your item?</p>
+                <p className='text-base font-semibold'>How do you want your item?</p>
               </div>
-              <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2'>
-                <Image
-                  className='w-10'
-                  src={ship1Img}
-                  alt='shippingImage'
-                />
-                <p>Shipping</p>
-                <p>Tomorrow</p>
-                <p>Free</p>
+              <div className='w-full grid grid-cols-3 gap-4 text-xs'>
+                <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2'>
+                  <Image
+                    className='w-10'
+                    src={ship1Img}
+                    alt='shippingImage'
+                  />
+                  <p>Shipping</p>
+                  <p>Tomorrow</p>
+                  <p>Free</p>
+                </div>
+                <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2'>
+                  <Image
+                    className='w-10'
+                    src={ship2Img}
+                    alt='shippingImage'
+                  />
+                  <p>Pickup</p>
+                  <p>Tomorrow</p>
+                  <p>Free</p>
+                </div>
+                <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2'>
+                  <Image
+                    className='w-10'
+                    src={ship3Img}
+                    alt='shippingImage'
+                  />
+                  <p>Devlivery</p>
+                  <p>Tomorrow</p>
+                </div>
               </div>
+              <p className='font-bold text-xs'>
+                Jerusalem, Shmuel HaNavi st.
+                <span className='font-normal underline underline-offset-2 ml-1'>Change</span>
+              </p>
             </div>
           </div>
         </div>
