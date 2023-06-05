@@ -4,8 +4,11 @@ import Image from "next/image"
 import { GoPlus } from "react-icons/go"
 import { BsStarFill } from "react-icons/bs"
 import Link from "next/link"
+import { useDispatch } from "react-redux"
+import { addToCart } from "@/redux/shopperSlice"
 
 const Products = ({ productData }: any) => {
+  const dispatch = useDispatch()
   return (
     <div className='py-6 px-4 grid grid-cols-4 gap-4'>
       {productData.map((item: Item) => (
@@ -24,7 +27,24 @@ const Products = ({ productData }: any) => {
           </div>
           <div className='px-2 py-4 flex flex-col justify-center'>
             <div className='flex justify-between py-2'>
-              <button className='w-20 h-9 bg-primary text-white rounded-full flex gap-1 items-center justify-center hover:bg-primary_hover duration-300'>
+              <button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      _id: item._id,
+                      title: item.title,
+                      description: item.description,
+                      image: item.image,
+                      price: item.price,
+                      oldPrice: item.oldPrice,
+                      quantity: 1,
+                      brand: item.brand,
+                      category: item.category,
+                    })
+                  )
+                }
+                className='w-20 h-9 bg-primary text-white rounded-full flex gap-1 items-center justify-center hover:bg-primary_hover duration-300'
+              >
                 <span>
                   <GoPlus />
                 </span>
