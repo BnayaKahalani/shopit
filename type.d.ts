@@ -34,3 +34,9 @@ export interface StoreProduct {
   quantity: number
   oldPrice: number
 }
+
+export interface UserInfo {
+  _id: string
+  name: string
+  email: string
+}

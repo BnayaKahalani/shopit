@@ -1,7 +1,12 @@
-import { StoreProduct } from "./../type.d"
+import { StoreProduct, UserInfo } from "./../type.d"
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
+interface ShopperState {
+  productData: StoreProduct[]
+  userInfo: null | UserInfo
+}
+
+const initialState: ShopperState = {
   productData: [],
   userInfo: null,
 }
@@ -12,7 +17,11 @@ export const shopperSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = state.productData.find((item: StoreProduct) => item._id === action.payload._id)
-      state.productData = action.payload
+      if (item) {
+        item.quantity += action.payload.quantity
+      } else {
+        state.productData.push(action.payload)
+      }
     },
   },
 })
