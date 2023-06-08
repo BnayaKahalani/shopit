@@ -6,8 +6,11 @@ import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { BsCart2 } from "react-icons/bs"
 import NavbarBottom from "./NavbarBottom"
 import Link from "next/link"
+import { useSelector } from "react-redux"
 
 const Navbar = () => {
+  const productData = useSelector((state: any) => state.shopper.productData)
+
   return (
     <div className='w-full bg-primary text-white sticky top-0 z-10'>
       <div className='w-full h-full border-b-[1px] border-b-white'>
@@ -67,7 +70,7 @@ const Navbar = () => {
               <BsCart2 className='text-2xl' />
               <p className='text-[10px]'>$0.00</p>
               <span className='absolute w-4 h-4 bg-red-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs'>
-                0
+                {productData.length > 0 ? productData.length : 0}
               </span>
             </div>
           </Link>
