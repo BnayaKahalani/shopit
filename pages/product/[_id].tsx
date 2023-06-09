@@ -4,9 +4,12 @@ import React, { useEffect, useState } from "react"
 import { IoMdHeartEmpty } from "react-icons/io"
 import { BsStarFill, BsInfoCircle } from "react-icons/bs"
 import { ship1Img, ship2Img, ship3Img } from "@/public/assets/images"
+import { addToCart } from "@/redux/shopperSlice"
+import { useDispatch } from "react-redux"
 
 const ProductDetails = () => {
   const router = useRouter()
+  const dispatch = useDispatch()
   const [product, setProduct] = useState<any>({})
   const [loading, setLoading] = useState(false)
 
@@ -15,6 +18,8 @@ const ProductDetails = () => {
     setProduct(router.query)
     setLoading(false)
   }, [])
+
+  const _id = Number(product._id)
 
   return (
     <div className='w-full bg-white'>
@@ -74,7 +79,24 @@ const ProductDetails = () => {
                 </p>
               </div>
               <div className='border-b-[1px] border-b-zinc-300 pb-4'>
-                <button className='w-32 h-10 bg-primary text-white rounded-full hover:bg-primary_hover duration-300'>
+                <button
+                  onClick={() =>
+                    dispatch(
+                      addToCart({
+                        _id: product._id,
+                        title: product.title,
+                        description: product.description,
+                        image: product.image,
+                        price: product.price,
+                        oldPrice: product.oldPrice,
+                        quantity: 1,
+                        brand: product.brand,
+                        category: product.category,
+                      })
+                    )
+                  }
+                  className='w-32 h-10 bg-primary text-white rounded-full hover:bg-primary_hover duration-300'
+                >
                   Add to cart
                 </button>
               </div>
