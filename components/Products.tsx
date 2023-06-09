@@ -6,6 +6,7 @@ import { BsStarFill } from "react-icons/bs"
 import Link from "next/link"
 import { useDispatch } from "react-redux"
 import { addToCart } from "@/redux/shopperSlice"
+import toast, { Toaster } from "react-hot-toast"
 
 const Products = ({ productData }: any) => {
   const dispatch = useDispatch()
@@ -41,7 +42,7 @@ const Products = ({ productData }: any) => {
                       brand: item.brand,
                       category: item.category,
                     })
-                  )
+                  ) && toast.success(`${item.title.substring(0, 20)} is add to cart`)
                 }
                 className='w-20 h-9 bg-primary text-white rounded-full flex gap-1 items-center justify-center hover:bg-primary_hover duration-300'
               >
@@ -94,6 +95,17 @@ const Products = ({ productData }: any) => {
           </div>
         </div>
       ))}
+      <Toaster
+        reverseOrder={false}
+        position='top-center'
+        toastOptions={{
+          style: {
+            borderRadius: "8px",
+            background: "#333",
+            color: "#fff",
+          },
+        }}
+      />
     </div>
   )
 }

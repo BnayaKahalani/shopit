@@ -6,6 +6,7 @@ import { BsStarFill, BsInfoCircle } from "react-icons/bs"
 import { ship1Img, ship2Img, ship3Img } from "@/public/assets/images"
 import { addToCart } from "@/redux/shopperSlice"
 import { useDispatch } from "react-redux"
+import toast, { Toaster } from "react-hot-toast"
 
 const ProductDetails = () => {
   const router = useRouter()
@@ -93,7 +94,7 @@ const ProductDetails = () => {
                         brand: product.brand,
                         category: product.category,
                       })
-                    )
+                    ) && toast.success(`${product.title.substring(0, 20)} is add to cart`)
                   }
                   className='w-32 h-10 bg-primary text-white rounded-full hover:bg-primary_hover duration-300'
                 >
@@ -142,6 +143,17 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <Toaster
+        reverseOrder={false}
+        position='top-center'
+        toastOptions={{
+          style: {
+            borderRadius: "8px",
+            background: "#333",
+            color: "#fff",
+          },
+        }}
+      />
     </div>
   )
 }
