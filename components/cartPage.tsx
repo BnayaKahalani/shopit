@@ -8,7 +8,7 @@ import { IoMdClose } from "react-icons/io"
 import Image from "next/image"
 import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
-import { decreaseQuntity, deleteItem, increaseQuantity, resetCart } from "../redux/shopperSlice"
+import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
 
 const CartPage = () => {
   const dispatch = useDispatch()

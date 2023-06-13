@@ -46,5 +46,5 @@ export const shopperSlice = createSlice({
   },
 })
 
-export const { addToCart } = shopperSlice.actions
+export const { addToCart, plusQuantity, minusQuantity, deleteItem, resetCart } = shopperSlice.actions
 export default shopperSlice.reducer
