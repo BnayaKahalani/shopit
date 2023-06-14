@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { emptyCart, phoneImg, ship1Img, ship2Img, ship3Img, warningImg } from "../public/assets/images"
 import { TbReload } from "react-icons/tb"
@@ -13,6 +13,12 @@ import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/sho
 const CartPage = () => {
   const dispatch = useDispatch()
   const productData = useSelector((state: any) => state.shopper.productData)
+  const [warningMsg, setWarningMsg] = useState(false)
+
+  useEffect(() => {
+    setWarningMsg(true)
+  }, [warningMsg])
+
   return (
     <div className='w-full py-20'>
       <div className='w-full flex gap-10'>
@@ -136,7 +142,26 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-        <div className='w-1/3 p-4 mt-24 h-[500px] border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4'></div>
+        <div className='w-1/3 p-4 mt-24 h-[500px] border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4'>
+          <button className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'>
+            Continue to checkout
+          </button>
+          <p className='text-sm text-center text-red-500 -mt-4 font-semibold'>Please sign in for checkout</p>
+          {warningMsg && (
+            <div className='bg-primary text-white p-2 rounded-lg flex items-center justify-between gap-4'>
+              <Image
+                className='w-8'
+                src={warningImg}
+                alt='warningImg'
+              />
+              <p className='text-sm'>Items in your cart have reduced prices. Check out now for extra savings!</p>
+              <IoMdClose
+                onClick={() => setWarningMsg(false)}
+                className='text-3xl hover:text-red-400 cursor-pointer duration-300'
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
