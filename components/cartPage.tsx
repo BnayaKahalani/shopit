@@ -14,9 +14,22 @@ const CartPage = () => {
   const dispatch = useDispatch()
   const productData = useSelector((state: any) => state.shopper.productData)
   const [warningMsg, setWarningMsg] = useState(false)
+  const [totalOldPrice, setTotalOldPrice] = useState(0)
+  const [totalSavings, setTotalSavings] = useState(0)
+  const [Amt, setAmt] = useState(0)
 
   useEffect(() => {
     setWarningMsg(true)
+    let oldPrice = 0
+    let savings = 0
+    let amt = 0
+
+    productData.map((item: StoreProduct) => {
+      oldPrice += item.oldPrice * item.quantity
+      savings += item.oldPrice - item.price
+      amt += item.price * item.quantity
+      return
+    })
   }, [warningMsg])
 
   return (
@@ -143,28 +156,54 @@ const CartPage = () => {
           </div>
         </div>
         <div className='w-1/3 p-4 mt-24 h-[500px] border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4'>
-          <button className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'>
-            Continue to checkout
-          </button>
-          <p className='text-sm text-center text-red-500 -mt-4 font-semibold'>Please sign in for checkout</p>
-          {warningMsg && (
-            <div className='bg-primary text-white p-2 rounded-lg flex items-center justify-between gap-4'>
-              <Image
-                className='w-8'
-                src={warningImg}
-                alt='warningImg'
-              />
-              <p className='text-sm'>Items in your cart have reduced prices. Check out now for extra savings!</p>
-              <IoMdClose
-                onClick={() => setWarningMsg(false)}
-                className='text-3xl hover:text-red-400 cursor-pointer duration-300'
-              />
+          <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
+            <button className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'>
+              Continue to checkout
+            </button>
+            <p className='text-sm text-center text-red-500 -mt-4 font-semibold'>Please sign in for checkout</p>
+            {warningMsg && (
+              <div className='bg-primary text-white p-2 rounded-lg flex items-center justify-between gap-4'>
+                <Image
+                  className='w-8'
+                  src={warningImg}
+                  alt='warningImg'
+                />
+                <p className='text-sm'>Items in your cart have reduced prices. Check out now for extra savings!</p>
+                <IoMdClose
+                  onClick={() => setWarningMsg(false)}
+                  className='text-3xl hover:text-red-400 cursor-pointer duration-300'
+                />
+              </div>
+            )}
+            <p className='text-sm text-center'>
+              For the best shopping experience{" "}
+              <span className='underline underline-offset-2 decoration-[1px]'>sign in</span>
+            </p>
+          </div>
+          <div>
+            <div>
+              <div className='text-sm flex justify-between'>
+                <p className='font-semibold'>
+                  Subtotal <span>{productData.length} items</span>
+                </p>
+                <p className='line-through text-zinc-500 text-base'>
+                  <FormattedPrice amount={totalOldPrice} />
+                </p>
+              </div>
+              <div className='text-sm flex justify-between'>
+                <p className='font-semibold'>Savings</p>
+                <p className='text-green-500 font-bold bg-green-100 py-1 px-[2px] rounded-lg flex'>
+                  -<FormattedPrice amount={totalSavings} />
+                </p>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
   )
 }
+
+// 3:10
 
 export default CartPage

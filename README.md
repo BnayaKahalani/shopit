@@ -4,3 +4,4 @@ Tailwind
 TypeScript
 React icons
 Redux Toolkit
+React Persist
