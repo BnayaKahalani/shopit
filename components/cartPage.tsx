@@ -16,7 +16,7 @@ const CartPage = () => {
   const [warningMsg, setWarningMsg] = useState(false)
   const [totalOldPrice, setTotalOldPrice] = useState(0)
   const [totalSavings, setTotalSavings] = useState(0)
-  const [Amt, setAmt] = useState(0)
+  const [amt, setAmt] = useState(0)
 
   useEffect(() => {
     setWarningMsg(true)
@@ -198,12 +198,28 @@ const CartPage = () => {
               </div>
             </div>
           </div>
+          <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
+            <div className='flex flex-col gap-1'>
+              <div className='text-sm flex justify-between'>
+                <p>Shipping</p>
+                <p className='text-green-400'>Free</p>
+              </div>
+              <div className='text-sm flex justify-between'>
+                <p className='font-semibold'>Taxes</p>
+                <p className='text-zinc-800'>Calculated at checkout</p>
+              </div>
+            </div>
+          </div>
+          <div className='flex items-center justify-between'>
+            <p>Estimated total</p>
+            <p className='text-zinc-800 font-bold text-lg'>
+              <FormattedPrice amount={amt} />
+            </p>
+          </div>
         </div>
       </div>
     </div>
   )
 }
-
-// 3:10
 
 export default CartPage
