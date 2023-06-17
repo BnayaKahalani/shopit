@@ -7,6 +7,7 @@ import { BsCart2 } from "react-icons/bs"
 import NavbarBottom from "./NavbarBottom"
 import Link from "next/link"
 import { useSelector } from "react-redux"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Navbar = () => {
   const productData = useSelector((state: any) => state.shopper.productData)
@@ -68,7 +69,10 @@ const Navbar = () => {
               <h2 className='text-base font-semibold -mt-1'>My Items</h2>
             </div>
           </div>
-          <div className='navbarHover'>
+          <div
+            onClick={() => signIn()}
+            className='navbarHover'
+          >
             <AiOutlineUser className='text-lg' />
             <div>
               <p className='text-xs'>Sign in</p>

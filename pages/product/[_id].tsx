@@ -65,7 +65,7 @@ const ProductDetails = () => {
                 </div>
                 <div className='flex items-end gap-2'>
                   <p className='font-semibold text-2xl text-green-600'>Now ${product.price}</p>
-                  <p>
+                  <p className='flex items-center gap-2'>
                     ${product.oldPrice}{" "}
                     <span>
                       <BsInfoCircle />
