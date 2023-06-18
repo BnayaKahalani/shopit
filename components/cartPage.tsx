@@ -180,7 +180,7 @@ const CartPage = () => {
               <span className='underline underline-offset-2 decoration-[1px]'>sign in</span>
             </p>
           </div>
-          <div>
+          <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             <div>
               <div className='text-sm flex justify-between'>
                 <p className='font-semibold'>
