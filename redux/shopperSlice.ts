@@ -43,8 +43,15 @@ export const shopperSlice = createSlice({
     resetCart: (state) => {
       state.productData = []
     },
+    addUser: (state, action) => {
+      state.userInfo = action.payload
+    },
+    removeUser: (state) => {
+      state.userInfo = null
+    },
   },
 })
 
-export const { addToCart, plusQuantity, minusQuantity, deleteItem, resetCart } = shopperSlice.actions
+export const { addToCart, plusQuantity, minusQuantity, deleteItem, resetCart, addUser, removeUser } =
+  shopperSlice.actions
 export default shopperSlice.reducer

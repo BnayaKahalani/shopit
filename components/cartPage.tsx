@@ -9,10 +9,12 @@ import Image from "next/image"
 import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
+import { userInfo } from ""
 
 const CartPage = () => {
   const dispatch = useDispatch()
   const productData = useSelector((state: any) => state.shopper.productData)
+  const userInfo = useSelector((state: any) => state.shopper.userInfo)
   const [warningMsg, setWarningMsg] = useState(false)
   const [totalOldPrice, setTotalOldPrice] = useState(0)
   const [totalSavings, setTotalSavings] = useState(0)
@@ -32,6 +34,9 @@ const CartPage = () => {
     })
   }, [warningMsg])
 
+  const handleCheckout = () => {
+    console.log("done")
+  }
   return (
     <div className='w-full py-20'>
       <div className='w-full flex gap-10'>
@@ -157,10 +162,21 @@ const CartPage = () => {
         </div>
         <div className='w-1/3 p-4 mt-24 h-[500px] border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4'>
           <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
-            <button className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'>
-              Continue to checkout
-            </button>
-            <p className='text-sm text-center text-red-500 -mt-4 font-semibold'>Please sign in for checkout</p>
+            {!userInfo ? (
+              <button
+                onClick={handleCheckout}
+                className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'
+              >
+                Continue to checkout
+              </button>
+            ) : (
+              <button className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'>
+                Continue to checkout
+              </button>
+            )}
+            {!userInfo && (
+              <p className='text-sm text-center text-red-500 -mt-4 font-semibold'>Please sign in for checkout</p>
+            )}
             {warningMsg && (
               <div className='bg-primary text-white p-2 rounded-lg flex items-center justify-between gap-4'>
                 <Image
@@ -175,10 +191,12 @@ const CartPage = () => {
                 />
               </div>
             )}
-            <p className='text-sm text-center'>
-              For the best shopping experience{" "}
-              <span className='underline underline-offset-2 decoration-[1px]'>sign in</span>
-            </p>
+            {!userInfo && (
+              <p className='text-sm text-center'>
+                For the best shopping experience{" "}
+                <span className='underline underline-offset-2 decoration-[1px]'>sign in</span>
+              </p>
+            )}
           </div>
           <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             <div>
