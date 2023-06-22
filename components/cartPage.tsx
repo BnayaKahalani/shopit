@@ -9,7 +9,6 @@ import Image from "next/image"
 import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
-import { userInfo } from ""
 
 const CartPage = () => {
   const dispatch = useDispatch()
