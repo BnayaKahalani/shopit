@@ -9,9 +9,11 @@ import Image from "next/image"
 import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
+import { loadStripe } from "@stripe/stripe-js"
 
 const CartPage = () => {
   const dispatch = useDispatch()
+  const stripePromise = loadStripe(process.env.stripe_public_key)
   const productData = useSelector((state: any) => state.shopper.productData)
   const userInfo = useSelector((state: any) => state.shopper.userInfo)
   const [warningMsg, setWarningMsg] = useState(false)
