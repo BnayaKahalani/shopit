@@ -10,8 +10,11 @@ import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
 import { loadStripe } from "@stripe/stripe-js"
+import axios from "axios"
+import { useSession } from "next-auth/react"
 
 const CartPage = () => {
+  const { data: session } = useSession()
   const dispatch = useDispatch()
   const stripePromise = loadStripe(process.env.stripe_public_key)
   const productData = useSelector((state: any) => state.shopper.productData)
@@ -33,10 +36,23 @@ const CartPage = () => {
       amt += item.price * item.quantity
       return
     })
-  }, [warningMsg])
+    setTotalOldPrice(oldPrice)
+    setTotalSavings(savings)
+    setAmt(amt)
+  }, [productData])
 
-  const handleCheckout = () => {
-    console.log("done")
+  const handleCheckout = async () => {
+    const stripe = await stripePromise
+
+    const checkoutSession = await axios.post("api/create-checkout-session", {
+      items: productData,
+      email: session?.user?.email,
+    })
+
+    const result: any = await stripe?.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    })
+    if (result?.error) alert(result?.error.message)
   }
   return (
     <div className='w-full py-20'>
