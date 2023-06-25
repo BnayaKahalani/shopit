@@ -5,3 +5,5 @@ TypeScript
 React icons
 Redux Toolkit
 React Persist
+Stripe
+Firebase
