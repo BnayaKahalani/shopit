@@ -56,13 +56,13 @@ const CartPage = () => {
   }
   return (
     <div className='w-full py-20'>
-      <div className='w-full flex gap-10'>
-        <div className='w-2/3 flex flex-col gap-5'>
+      <div className='flex w-full gap-10'>
+        <div className='flex w-2/3 flex-col gap-5'>
           <h1 className='text-2xl font-bold text-black'>
-            Cart <span className='text-lightText font-normal'>({productData.length} items)</span>
+            Cart <span className='font-normal text-lightText'>({productData.length} items)</span>
           </h1>
           <div>
-            <div className='text-xl font-bold flex items-center gap-2 mb-2'>
+            <div className='mb-2 flex items-center gap-2 text-xl font-bold'>
               <Image
                 className='w-10'
                 src={phoneImg}
@@ -70,8 +70,8 @@ const CartPage = () => {
               />
               <p>Pickup and delivery options</p>
             </div>
-            <div className='w-full grid grid-cols-3 gap-4 text-xs'>
-              <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2'>
+            <div className='grid w-full grid-cols-3 gap-4 text-xs'>
+              <div className='flex w-full flex-col items-center justify-center gap-1 rounded-md border border-zinc-400 p-2'>
                 <Image
                   className='w-10'
                   src={ship1Img}
@@ -80,7 +80,7 @@ const CartPage = () => {
                 <p className='font-bold'>Shipping</p>
                 <p>All items available</p>
               </div>
-              <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2'>
+              <div className='flex w-full flex-col items-center justify-center gap-1 rounded-md border border-zinc-400 p-2'>
                 <Image
                   className='w-10'
                   src={ship2Img}
@@ -89,7 +89,7 @@ const CartPage = () => {
                 <p className='font-bold'>Pickup</p>
                 <p>All items available</p>
               </div>
-              <div className='w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2'>
+              <div className='flex w-full flex-col items-center justify-center gap-1 rounded-md border border-zinc-400 p-2'>
                 <Image
                   className='w-10'
                   src={ship3Img}
@@ -99,15 +99,15 @@ const CartPage = () => {
                 <p>All items available</p>
               </div>
             </div>
-            <div className='font-semibold text-sm text-zinc-500'>
+            <div className='text-sm font-semibold text-zinc-500'>
               <p>
-                Sold and shipped by <span className='text-black font-semibold'>Shopit.com</span>
+                Sold and shipped by <span className='font-semibold text-black'>Shopit.com</span>
               </p>
               <div className='flex gap-2'>
-                <button className='px-2 py-[1px] text-blue-500 text-sm border-[1px] border-blue-500 rounded-sm'>
+                <button className='rounded-sm border-[1px] border-blue-500 px-2 py-[1px] text-sm text-blue-500'>
                   Best seller
                 </button>
-                <button className='px-2 py-[1px] text-red-500 text-sm border-[1px] border-red-500 rounded-sm '>
+                <button className='rounded-sm border-[1px] border-red-500 px-2 py-[1px] text-sm text-red-500 '>
                   Rollback
                 </button>
               </div>
@@ -117,7 +117,7 @@ const CartPage = () => {
                     key={item._id}
                     className='flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4'
                   >
-                    <div className='w-3/4 flex items-center gap-2'>
+                    <div className='flex w-3/4 items-center gap-2'>
                       <Image
                         className='w-32'
                         width={500}
@@ -129,38 +129,38 @@ const CartPage = () => {
                         <h2 className='text-base text-zinc-900'>{item.title}</h2>
                         <p className='text-sm text-zinc-500'>{item.description}</p>
                         <p className='text-sm text-zinc-500'>price: ${item.price}</p>
-                        <p className='text-sm text-zinc-500 flex items-center gap-1'>
-                          <span className='bg-blue-400 rounded-full text-white text-xs w-4'>
+                        <p className='flex items-center gap-1 text-sm text-zinc-500'>
+                          <span className='w-4 rounded-full bg-blue-400 text-xs text-white'>
                             <TbReload className='rotate-180' />
                           </span>{" "}
                           Free 30-day returns
                         </p>
                         <div className='mt-2 flex items-center gap-6'>
-                          <button className='text-sm underline underline-offset-2 decoration-[1px] text-zinc-600 hover:no-underline hover:text-zinc-400 duration-300'>
+                          <button className='text-sm text-zinc-600 underline decoration-[1px] underline-offset-2 duration-300 hover:text-zinc-400 hover:no-underline'>
                             Remove
                           </button>
-                          <div className='w-28 h-9 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3'>
-                            <button className='text-base w-5 h-5 text-zinc-600 hover:bg-zinc-400 hover:text-white rounded-full flex items-center justify-center cursor-pointer duration-200'>
+                          <div className='flex h-9 w-28 items-center justify-between rounded-full border border-zinc-400 px-3 text-base font-semibold text-black'>
+                            <button className='flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-base text-zinc-600 duration-200 hover:bg-zinc-400 hover:text-white'>
                               <HiMinusSmall />
                             </button>
                             <span>{item.quantity}</span>
-                            <button className='text-base w-5 h-5 text-zinc-600 hover:bg-zinc-400 hover:text-white rounded-full flex items-center justify-center cursor-pointer duration-200'>
+                            <button className='flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-base text-zinc-600 duration-200 hover:bg-zinc-400 hover:text-white'>
                               <MdOutlineAdd />
                             </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className='w-1/4 text-right flex flex-col items-end gap-1'>
-                      <p className='font-semibold text-xl text-green-500'>
+                    <div className='flex w-1/4 flex-col items-end gap-1 text-right'>
+                      <p className='text-xl font-semibold text-green-500'>
                         <FormattedPrice amount={item.price * item.quantity} />
                       </p>
-                      <p className='text-sm line-through text-zinc-500'>
+                      <p className='text-sm text-zinc-500 line-through'>
                         <FormattedPrice amount={item.oldPrice * item.quantity} />
                       </p>
-                      <div className='flex items-center text-xs gap-2'>
-                        <p className='bg-green-200 text-[8px] uppercase px-2 py-[1px]'>You save </p>
-                        <p className='text-green-500 font-semibold'>
+                      <div className='flex items-center gap-2 text-xs'>
+                        <p className='bg-green-200 px-2 py-[1px] text-[8px] uppercase'>You save </p>
+                        <p className='font-semibold text-green-500'>
                           <FormattedPrice amount={item.oldPrice * item.quantity - item.price * item.quantity} />
                         </p>
                       </div>
@@ -170,32 +170,32 @@ const CartPage = () => {
               </div>
               <button
                 onClick={() => dispatch(resetCart())}
-                className='w-44 bg-red-500 text-white h-10 rounded-full text-base font-semibold hover:bg-red-800 duration-300'
+                className='h-10 w-44 rounded-full bg-red-500 text-base font-semibold text-white duration-300 hover:bg-red-800'
               >
                 Reset Cart
               </button>
             </div>
           </div>
         </div>
-        <div className='w-1/3 p-4 mt-24 h-[500px] border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4'>
-          <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
+        <div className='mt-24 flex h-[500px] w-1/3 flex-col justify-center gap-4 rounded-md border-[1px] border-zinc-400 p-4'>
+          <div className='flex w-full flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             {!userInfo ? (
               <button
                 onClick={handleCheckout}
-                className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'
+                className='h-10 w-full rounded bg-primary font-semibold text-white duration-300 hover:bg-primary_hover'
               >
                 Continue to checkout
               </button>
             ) : (
-              <button className='bg-primary hover:bg-primary_hover w-full text-white h-10 rounded font-semibold duration-300'>
+              <button className='h-10 w-full rounded bg-primary font-semibold text-white duration-300 hover:bg-primary_hover'>
                 Continue to checkout
               </button>
             )}
             {!userInfo && (
-              <p className='text-sm text-center text-red-500 -mt-4 font-semibold'>Please sign in for checkout</p>
+              <p className='-mt-4 text-center text-sm font-semibold text-red-500'>Please sign in for checkout</p>
             )}
             {warningMsg && (
-              <div className='bg-primary text-white p-2 rounded-lg flex items-center justify-between gap-4'>
+              <div className='flex items-center justify-between gap-4 rounded-lg bg-primary p-2 text-white'>
                 <Image
                   className='w-8'
                   src={warningImg}
@@ -204,42 +204,42 @@ const CartPage = () => {
                 <p className='text-sm'>Items in your cart have reduced prices. Check out now for extra savings!</p>
                 <IoMdClose
                   onClick={() => setWarningMsg(false)}
-                  className='text-3xl hover:text-red-400 cursor-pointer duration-300'
+                  className='cursor-pointer text-3xl duration-300 hover:text-red-400'
                 />
               </div>
             )}
             {!userInfo && (
-              <p className='text-sm text-center'>
+              <p className='text-center text-sm'>
                 For the best shopping experience{" "}
-                <span className='underline underline-offset-2 decoration-[1px]'>sign in</span>
+                <span className='underline decoration-[1px] underline-offset-2'>sign in</span>
               </p>
             )}
           </div>
-          <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
+          <div className='flex w-full flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             <div>
-              <div className='text-sm flex justify-between'>
+              <div className='flex justify-between text-sm'>
                 <p className='font-semibold'>
                   Subtotal <span>{productData.length} items</span>
                 </p>
-                <p className='line-through text-zinc-500 text-base'>
+                <p className='text-base text-zinc-500 line-through'>
                   <FormattedPrice amount={totalOldPrice} />
                 </p>
               </div>
-              <div className='text-sm flex justify-between'>
+              <div className='flex justify-between text-sm'>
                 <p className='font-semibold'>Savings</p>
-                <p className='text-green-500 font-bold bg-green-100 py-1 px-[2px] rounded-lg flex'>
+                <p className='flex rounded-lg bg-green-100 px-[2px] py-1 font-bold text-green-500'>
                   -<FormattedPrice amount={totalSavings} />
                 </p>
               </div>
             </div>
           </div>
-          <div className='w-full flex flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
+          <div className='flex w-full flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             <div className='flex flex-col gap-1'>
-              <div className='text-sm flex justify-between'>
+              <div className='flex justify-between text-sm'>
                 <p>Shipping</p>
                 <p className='text-green-400'>Free</p>
               </div>
-              <div className='text-sm flex justify-between'>
+              <div className='flex justify-between text-sm'>
                 <p className='font-semibold'>Taxes</p>
                 <p className='text-zinc-800'>Calculated at checkout</p>
               </div>
@@ -247,7 +247,7 @@ const CartPage = () => {
           </div>
           <div className='flex items-center justify-between'>
             <p>Estimated total</p>
-            <p className='text-zinc-800 font-bold text-lg'>
+            <p className='text-lg font-bold text-zinc-800'>
               <FormattedPrice amount={amt} />
             </p>
           </div>

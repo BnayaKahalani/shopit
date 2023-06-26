@@ -48,5 +48,7 @@ module.exports = {
 
     },
   },
-  plugins: [],
+  plugins: [
+  ],
+  "pluginSearchDirs": false
 }
