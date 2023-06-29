@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Item } from "../type"
 import Image from "next/image"
 import { GoPlus } from "react-icons/go"
@@ -11,11 +11,23 @@ import toast, { Toaster } from "react-hot-toast"
 const Products = ({ productData }: any) => {
   const dispatch = useDispatch()
 
+  const [count, setCount] = useState(0)
+
   const getRandomInt = (min: number, max: number) => {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min) + min)
   }
+
+  const generateRandomCount = () => {
+    const maxCount = 5
+    const randomCount = Math.floor(Math.random() * maxCount) + 1
+    setCount(randomCount)
+  }
+
+  useEffect(() => {
+    generateRandomCount()
+  }, [count])
 
   return (
     <div className='grid grid-cols-4 gap-4 px-4 py-6'>
@@ -92,11 +104,9 @@ const Products = ({ productData }: any) => {
           </div>
           <div className='mt-2 flex items-center justify-between gap-2 text-sm'>
             <div className='flex gap-1 text-sm'>
-              <BsStarFill />
-              <BsStarFill />
-              <BsStarFill />
-              <BsStarFill />
-              <BsStarFill />
+              {Array.from({ length: count }, (_, index) => (
+                <BsStarFill key={index} />
+              ))}
               <p>{getRandomInt(25, 100)}</p>
             </div>
           </div>
