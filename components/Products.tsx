@@ -19,19 +19,15 @@ const Products = ({ productData }: any) => {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
-  const generateRandomCount = () => {
-    const maxCount = 5
-    const randomCount = Math.floor(Math.random() * maxCount) + 1
-    setCount(randomCount)
-  }
-
   useEffect(() => {
-    generateRandomCount()
+    setCount(Math.floor(Math.random() * 5) + 1)
   }, [count])
 
   return (
     <div className='grid grid-cols-4 gap-4 px-4 py-6'>
-      {productData.map((item: Item) => (
+      {productData.map((item: Item) => {
+        setCount(Math.floor(Math.random() * 5) + 1
+        return ( 
         <div
           className='group mb-6 border-[1px] border-gray-200'
           key={item._id}
@@ -111,7 +107,8 @@ const Products = ({ productData }: any) => {
             </div>
           </div>
         </div>
-      ))}
+        )
+})}
       <Toaster
         reverseOrder={false}
         position='top-center'
