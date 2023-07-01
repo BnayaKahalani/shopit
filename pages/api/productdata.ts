@@ -1,17 +1,23 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next"
+
+const getRandomInt = (min: number, max: number) => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min) + min)
+}
 
 type Data = {
-  _id: number;
-  title: string;
-  description: string;
-  oldPrice: number;
-  price: number;
-  brand: string;
-  image: string;
-  isNew: boolean;
-  category: string;
-}[];
+  _id: number
+  title: string
+  description: string
+  oldPrice: number
+  price: number
+  brand: string
+  image: string
+  isNew: boolean
+  category: string
+}[]
 const productData = [
   {
     _id: 101,
@@ -24,6 +30,7 @@ const productData = [
     image: "https://i.ibb.co/1r28gMk/1.webp",
     isNew: true,
     category: "Electronics",
+    rate: getRandomInt(1, 5),
   },
 
   {
@@ -37,18 +44,19 @@ const productData = [
     image: "https://i.ibb.co/qdfB3s6/2.webp",
     isNew: true,
     category: "Electronics",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 103,
     title: "Apple 10.2-inch iPad",
-    description:
-      "2021 Apple 10.2-inch iPad Wi-Fi 64GB - Space Gray (9th Generation)",
+    description: "2021 Apple 10.2-inch iPad Wi-Fi 64GB - Space Gray (9th Generation)",
     oldPrice: 329.0,
     price: 269.0,
     brand: "Apple",
     image: "https://i.ibb.co/VL1Dnv1/4.webp",
     isNew: true,
     category: "Electronics",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 104,
@@ -60,30 +68,31 @@ const productData = [
     image: "https://i.ibb.co/5F3nWv6/7.webp",
     isNew: true,
     category: "Electronics",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 105,
     title: "Apple Watch SE",
-    description:
-      "Apple Watch SE (2nd Gen) GPS 40mm Midnight Aluminum Case with Midnight Sport Band - S/M",
+    description: "Apple Watch SE (2nd Gen) GPS 40mm Midnight Aluminum Case with Midnight Sport Band - S/M",
     oldPrice: 350.0,
     price: 249.0,
     brand: "Apple",
     image: "https://i.ibb.co/xgZWmdq/8.jpg",
     isNew: true,
     category: "Electronics",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 106,
     title: "Beats Solo3",
-    description:
-      "Beats Solo3 Wireless On-Ear Headphones with Apple W1 Headphone Chip, Black, MX432LL/A",
+    description: "Beats Solo3 Wireless On-Ear Headphones with Apple W1 Headphone Chip, Black, MX432LL/A",
     oldPrice: 120.99,
     price: 130.09,
     brand: "Beats by Dr. Dre",
     image: "https://i.ibb.co/rQKjVC2/5.webp",
     isNew: true,
     category: "Electronics",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 107,
@@ -96,30 +105,31 @@ const productData = [
     image: "https://i.ibb.co/Ycz8hkV/6.webp",
     isNew: true,
     category: "Home Decoration",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 108,
     title: "T-Shirt Men",
-    description:
-      "St Patricks Day T-Shirt Men -Image by Shutterstock, Male XX-Large",
+    description: "St Patricks Day T-Shirt Men -Image by Shutterstock, Male XX-Large",
     oldPrice: 15.0,
     price: 18.99,
     brand: "Smartprints",
     image: "https://i.ibb.co/BLCDw7v/3.webp",
     isNew: true,
     category: "Fashion",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 109,
     title: "Picnic Table Bench Set",
-    description:
-      "Costway Picnic Table Bench Set Outdoor Backyard Patio Garden Party Dining All Weather Black",
+    description: "Costway Picnic Table Bench Set Outdoor Backyard Patio Garden Party Dining All Weather Black",
     oldPrice: 169.99,
     price: 298.0,
     brand: "Costway",
     image: "https://i.ibb.co/qCXcPhq/8.webp",
     isNew: true,
     category: "Home Decoration",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 110,
@@ -131,18 +141,19 @@ const productData = [
     image: "https://i.ibb.co/TTS9wY4/9.webp",
     isNew: true,
     category: "Equipments",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 111,
     title: "Girls Cropped",
-    description:
-      "Free Assembly Girls Cropped Mixed Cable Knit Fair Isle Sweater, Sizes 4-18",
+    description: "Free Assembly Girls Cropped Mixed Cable Knit Fair Isle Sweater, Sizes 4-18",
     oldPrice: 20.0,
     price: 15.31,
     brand: "Free Assembly",
     image: "https://i.ibb.co/BVzsqvz/10.webp",
     isNew: true,
     category: "Fashion",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 112,
@@ -155,6 +166,7 @@ const productData = [
     image: "https://i.ibb.co/zPDcCQY/top4.webp",
     isNew: true,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 113,
@@ -167,11 +179,11 @@ const productData = [
     image: "https://i.ibb.co/QC4L3RF/top8.jpg",
     isNew: true,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 114,
-    title:
-      "L'Oreal Paris Revitalift Triple Power Anti-Aging Cream Face Moisturizer 1.7 oz",
+    title: "L'Oreal Paris Revitalift Triple Power Anti-Aging Cream Face Moisturizer 1.7 oz",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
     oldPrice: 35.0,
@@ -180,11 +192,11 @@ const productData = [
     image: "https://i.ibb.co/dKmw2sC/top2.webp",
     isNew: true,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 115,
-    title:
-      "L'Oreal Paris 55+ Moisturizer Anti-Aging Face Moisturizer, Wrinkle Expert, 1.7 oz",
+    title: "L'Oreal Paris 55+ Moisturizer Anti-Aging Face Moisturizer, Wrinkle Expert, 1.7 oz",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
     oldPrice: 23.65,
@@ -193,11 +205,11 @@ const productData = [
     image: "https://i.ibb.co/sJwg0YF/top1.webp",
     isNew: true,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 116,
-    title:
-      "Vaseline Intensive Care™ Advanced Repair Unscented Body Lotion, 20.3 oz",
+    title: "Vaseline Intensive Care™ Advanced Repair Unscented Body Lotion, 20.3 oz",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
     oldPrice: 9.99,
@@ -206,6 +218,7 @@ const productData = [
     image: "https://i.ibb.co/v1sPXLq/top5.webp",
     isNew: true,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 117,
@@ -218,11 +231,11 @@ const productData = [
     image: "https://i.ibb.co/yPJjB3r/top6.webp",
     isNew: false,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 118,
-    title:
-      "Neutrogena Hydro Boost Hyaluronic Acid Water Gel Face Moisturizer, 1.7 oz",
+    title: "Neutrogena Hydro Boost Hyaluronic Acid Water Gel Face Moisturizer, 1.7 oz",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
     oldPrice: 29.0,
@@ -231,11 +244,11 @@ const productData = [
     image: "https://i.ibb.co/zmw8xFY/top7.webp",
     isNew: true,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 119,
-    title:
-      "L'Oreal Paris Collagen Moisture Filler Facial Treatment Day Night Cream, Anti-Aging, 1.7 oz",
+    title: "L'Oreal Paris Collagen Moisture Filler Facial Treatment Day Night Cream, Anti-Aging, 1.7 oz",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
     oldPrice: 14.0,
@@ -244,6 +257,7 @@ const productData = [
     image: "https://i.ibb.co/vHJkwzt/top3.webp",
     isNew: false,
     category: "Beauty Product",
+    rate: getRandomInt(1, 5),
   },
   {
     _id: 120,
@@ -255,12 +269,10 @@ const productData = [
     image: "https://i.ibb.co/BNXTLkq/12.webp",
     isNew: false,
     category: "Fashion",
+    rate: getRandomInt(1, 5),
   },
-];
+]
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json(productData);
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  res.status(200).json(productData)
 }
