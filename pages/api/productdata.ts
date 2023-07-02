@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
 
 const getRandomInt = (min: number, max: number) => {
@@ -169,19 +168,6 @@ const productData = [
     rate: getRandomInt(1, 5),
   },
   {
-    _id: 113,
-    title: "Face LiquidSweet Lightweight Beauty Products for Women",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
-    oldPrice: 9.59,
-    price: 7.62,
-    brand: "unknown",
-    image: "https://i.ibb.co/QC4L3RF/top8.jpg",
-    isNew: true,
-    category: "Beauty Product",
-    rate: getRandomInt(1, 5),
-  },
-  {
     _id: 114,
     title: "L'Oreal Paris Revitalift Triple Power Anti-Aging Cream Face Moisturizer 1.7 oz",
     description:
@@ -257,18 +243,6 @@ const productData = [
     image: "https://i.ibb.co/vHJkwzt/top3.webp",
     isNew: false,
     category: "Beauty Product",
-    rate: getRandomInt(1, 5),
-  },
-  {
-    _id: 120,
-    title: "Girls Sleeveless Cutout",
-    description: "Free Assembly Girls Sleeveless Cutout Jumpsuit, Sizes 4-18",
-    oldPrice: 52.0,
-    price: 22.0,
-    brand: "Free Assembly",
-    image: "https://i.ibb.co/BNXTLkq/12.webp",
-    isNew: false,
-    category: "Fashion",
     rate: getRandomInt(1, 5),
   },
 ]

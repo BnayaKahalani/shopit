@@ -2,39 +2,22 @@ import React from "react"
 import { Item } from "../type"
 import Image from "next/image"
 import { GoPlus } from "react-icons/go"
-import { BsStar, BsStarFill } from "react-icons/bs"
 import Link from "next/link"
 import { useDispatch } from "react-redux"
 import { addToCart } from "@/redux/shopperSlice"
 import toast, { Toaster } from "react-hot-toast"
+import useRandom from "@/hooks/useRandom"
+import useRate from "@/hooks/useRate"
 
 const Products = ({ productData }: any) => {
   const dispatch = useDispatch()
-
-  const getRandomInt = (min: number, max: number) => {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min) + min)
-  }
-
-  const getRate = (product: any) => {
-    const stars = []
-    for (let i = 0; i < product.rate; i++) {
-      stars.push(<BsStarFill />)
-    }
-
-    for (let i = stars.length; i < 5; i++) {
-      stars.push(<BsStar />)
-    }
-    return stars
-  }
 
   return (
     <div className='grid grid-cols-4 gap-4 px-4 py-6'>
       {productData.map((item: Item) => {
         return (
           <div
-            className='group mb-6 border-[1px] border-gray-200'
+            className='group mb-6 flex flex-col justify-between border-[1px] border-gray-200 p-2'
             key={item._id}
           >
             <div className='h-[350px] w-full overflow-hidden p-1'>
@@ -64,7 +47,7 @@ const Products = ({ productData }: any) => {
                       })
                     ) && toast.success(`${item.title.substring(0, 20)} is add to cart`)
                   }
-                  className='flex h-9 w-20 items-center justify-center gap-1 rounded-full bg-primary text-white duration-300 hover:bg-primary_hover'
+                  className='flex h-9 w-20 items-center justify-center gap-1 rounded-full bg-primary text-white duration-200 hover:bg-primary_hover'
                 >
                   <span>
                     <GoPlus />
@@ -84,11 +67,12 @@ const Products = ({ productData }: any) => {
                       category: item.category,
                       image: item.image,
                       isNew: item.isNew,
+                      rate: item.rate,
                     },
                   }}
                   as={`product/${item._id}`}
                 >
-                  <button className='flex h-9 w-24 items-center justify-center gap-1 rounded-full border-[1px] border-black bg-white text-black duration-300 hover:bg-primary_hover hover:text-white'>
+                  <button className='flex h-9 w-24 items-center justify-center gap-1 rounded-full border-[1px] border-black bg-white text-black duration-200 hover:bg-primary_hover hover:text-white'>
                     <span>
                       <GoPlus />
                     </span>
@@ -104,9 +88,9 @@ const Products = ({ productData }: any) => {
               <p className='text-base text-zinc-500'>{item.description.substring(0, 80)}...</p>
             </div>
             <div className='mt-2 flex items-center justify-between gap-2 text-sm'>
-              <div className='flex items-center gap-1 text-sm'>
-                {getRate(item)}
-                <p>{getRandomInt(25, 100)}</p>
+              <div className='flex items-center justify-center gap-1 text-sm'>
+                {useRate(item)}
+                <p>{useRandom(25, 100)}</p>
               </div>
             </div>
           </div>

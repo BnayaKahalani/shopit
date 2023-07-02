@@ -21,6 +21,7 @@ export interface Item {
   isNew: boolean
   oldPrice: number
   price: number
+  rate: number
 }
 
 export interface StoreProduct {
