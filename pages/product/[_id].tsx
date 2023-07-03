@@ -42,13 +42,11 @@ const ProductDetails = () => {
           </p>
           <div className='flex flex-col gap-6 rounded-md border border-gray-400 px-2 py-4'>
             <div className='flex items-center justify-between'>
-              <div className='flex gap-4'>
-                <button className='rounded-sm border-[1px] border-black px-2 py-[1px] text-sm text-black'>
+              <div className='flex gap-2'>
+                <p className='rounded-sm border-[1px] border-blue-500 px-2 py-[1px] text-sm text-blue-500'>
                   Best seller
-                </button>
-                <button className='rounded-sm border-[1px] border-black px-2 py-[1px] text-sm text-black'>
-                  Rollback
-                </button>
+                </p>
+                <p className='rounded-sm border-[1px] border-red-500 px-2 py-[1px] text-sm text-red-500 '>Rollback</p>
               </div>
               <IoMdHeartEmpty className='text-2xl text-gray-600' />
             </div>

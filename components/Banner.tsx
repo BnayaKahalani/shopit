@@ -49,7 +49,7 @@ const Banner = () => {
         >
           From $50
         </p>
-        <p className='-mt-1 text-base text-gray-500'>TV for your living room</p>
+        <p className='-mt-1 text-base text-gray-500'>Outdoor furniture</p>
       </div>
     </div>
   )

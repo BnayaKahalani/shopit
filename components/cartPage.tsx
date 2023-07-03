@@ -61,7 +61,7 @@ const CartPage = () => {
           <h1 className='text-2xl font-bold text-black'>
             Cart <span className='font-normal text-lightText'>({productData.length} items)</span>
           </h1>
-          <div>
+          <div className='flex flex-col gap-4'>
             <div className='mb-2 flex items-center gap-2 text-xl font-bold'>
               <Image
                 className='w-10'
@@ -99,25 +99,17 @@ const CartPage = () => {
                 <p>All items available</p>
               </div>
             </div>
-            <div className='text-sm font-semibold text-zinc-500'>
+            <div className='flex flex-col gap-5 text-sm font-semibold text-zinc-500'>
               <p>
                 Sold and shipped by <span className='font-semibold text-black'>Shopit.com</span>
               </p>
-              <div className='flex gap-2'>
-                <button className='rounded-sm border-[1px] border-blue-500 px-2 py-[1px] text-sm text-blue-500'>
-                  Best seller
-                </button>
-                <button className='rounded-sm border-[1px] border-red-500 px-2 py-[1px] text-sm text-red-500 '>
-                  Rollback
-                </button>
-              </div>
               <div>
                 {productData.map((item: StoreProduct) => (
                   <div
                     key={item._id}
-                    className='flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4'
+                    className='flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 py-4'
                   >
-                    <div className='flex w-3/4 items-center gap-2'>
+                    <div className='flex w-3/4 items-center gap-4'>
                       <Image
                         className='w-32'
                         width={500}
@@ -125,12 +117,12 @@ const CartPage = () => {
                         src={item.image}
                         alt='productImg'
                       />
-                      <div>
+                      <div className='flex flex-col gap-1'>
                         <h2 className='text-base text-zinc-900'>{item.title}</h2>
                         <p className='text-sm text-zinc-500'>{item.description}</p>
                         <p className='text-sm text-zinc-500'>price: ${item.price}</p>
                         <p className='flex items-center gap-1 text-sm text-zinc-500'>
-                          <span className='w-4 rounded-full bg-blue-400 text-xs text-white'>
+                          <span className='flex h-5 w-5 items-center justify-center rounded-full bg-blue-400 text-xs text-white'>
                             <TbReload className='rotate-180' />
                           </span>{" "}
                           Free 30-day returns
@@ -191,9 +183,7 @@ const CartPage = () => {
                 Continue to checkout
               </button>
             )}
-            {!userInfo && (
-              <p className='-mt-4 text-center text-sm font-semibold text-red-500'>Please sign in for checkout</p>
-            )}
+            {!userInfo && <p className='text-center text-sm font-semibold text-red-500'>Please sign in for checkout</p>}
             {warningMsg && (
               <div className='flex items-center justify-between gap-4 rounded-lg bg-primary p-2 text-white'>
                 <Image
@@ -237,7 +227,7 @@ const CartPage = () => {
             <div className='flex flex-col gap-1'>
               <div className='flex justify-between text-sm'>
                 <p>Shipping</p>
-                <p className='text-green-400'>Free</p>
+                <p className='text-green-500'>Free</p>
               </div>
               <div className='flex justify-between text-sm'>
                 <p className='font-semibold'>Taxes</p>

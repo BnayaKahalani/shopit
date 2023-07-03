@@ -41,9 +41,9 @@ const Navbar = () => {
   }, [productData])
 
   return (
-    <div className='w-full bg-primary text-white sticky top-0 z-10'>
-      <div className='w-full h-full border-b-[1px] border-b-white'>
-        <div className='max-w-container mx-auto h-20 px-4 flex items-center gap-2'>
+    <div className='sticky top-0 z-10 w-full bg-primary text-white'>
+      <div className='h-full w-full border-b-[1px] border-b-white'>
+        <div className='mx-auto flex h-20 max-w-container items-center gap-2 px-4'>
           <Link href='/'>
             <div className='navbar'>
               <Image
@@ -53,30 +53,30 @@ const Navbar = () => {
             </div>
           </Link>
           <div className='navbarHover'>
-            <div className='w-4 grid grid-cols-2 gap-[2px]'>
-              <span className='w-1.5 h-1.5 border-[1px] border-white inline-flex'></span>
-              <span className='w-1.5 h-1.5 border-[1px] border-white inline-flex'></span>
-              <span className='w-1.5 h-1.5 border-[1px] border-white inline-flex'></span>
-              <span className='w-1.5 h-1.5 border-[1px] border-white inline-flex'></span>
+            <div className='grid w-4 grid-cols-2 gap-[2px]'>
+              <span className='inline-flex h-1.5 w-1.5 border-[1px] border-white'></span>
+              <span className='inline-flex h-1.5 w-1.5 border-[1px] border-white'></span>
+              <span className='inline-flex h-1.5 w-1.5 border-[1px] border-white'></span>
+              <span className='inline-flex h-1.5 w-1.5 border-[1px] border-white'></span>
             </div>
             <p className='text-base font-semibold'>Departments</p>
           </div>
           <div className='navbarHover'>
-            <div className='w-4 grid grid-cols-2 gap-[2px]'>
-              <span className='w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex'></span>
-              <span className='w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex'></span>
-              <span className='w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex'></span>
-              <span className='w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex'></span>
+            <div className='grid w-4 grid-cols-2 gap-[2px]'>
+              <span className='inline-flex h-1.5 w-1.5 rounded-md border-[1px] border-white'></span>
+              <span className='inline-flex h-1.5 w-1.5 rounded-md border-[1px] border-white'></span>
+              <span className='inline-flex h-1.5 w-1.5 rounded-md border-[1px] border-white'></span>
+              <span className='inline-flex h-1.5 w-1.5 rounded-md border-[1px] border-white'></span>
             </div>
             <p className='text-base font-semibold'>Services</p>
           </div>
-          <div className='h-10 flex flex-1 relative'>
+          <div className='relative flex h-10 flex-1'>
             <input
-              className='h-full w-full rounded-full px-4 text-black text-base outline-none border-[1px] border-transparent focus-visible:border-black duration 200'
+              className='duration 200 h-full w-full rounded-full border-[1px] border-transparent px-4 text-base text-black outline-none focus-visible:border-black'
               type='text'
               placeholder='Search at Shopit'
             />
-            <span className='absolute w-8 h-8 rounded-full flex items-center justify-center top-1 right-1 bg-purple-500 txt-black text-xl'>
+            <span className='txt-black absolute right-1 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500 text-xl'>
               <IoSearchOutline />
             </span>
           </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
             <AiOutlineHeart />
             <div>
               <p className='text-xs'>Recorder</p>
-              <h2 className='text-base font-semibold -mt-1'>My Items</h2>
+              <h2 className='-mt-1 text-base font-semibold'>My Items</h2>
             </div>
           </div>
           {userInfo ? (
@@ -101,7 +101,7 @@ const Navbar = () => {
               />
               <div>
                 <p className='text-xs'>Sign Out</p>
-                <h2 className='text-base font-semibold -mt-1'>{userInfo.name}</h2>
+                <h2 className='-mt-1 text-base font-semibold'>{userInfo.name}</h2>
               </div>
             </div>
           ) : (
@@ -112,15 +112,15 @@ const Navbar = () => {
               <AiOutlineUser className='text-lg' />
               <div>
                 <p className='text-xs'>Sign in</p>
-                <h2 className='text-base font-semibold -mt-1'>Account</h2>
+                <h2 className='-mt-1 text-base font-semibold'>Account</h2>
               </div>
             </div>
           )}
           <Link href='/cart'>
-            <div className='flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-primary_hover duration-300 relative'>
+            <div className='relative flex h-12 flex-col items-center justify-center gap-2 rounded-full bg-transparent px-5 duration-300 hover:bg-primary_hover'>
               <BsCart2 className='text-2xl' />
               <p className='text-[10px]'>${totalAmount}</p>
-              <span className='absolute w-4 h-4 bg-red-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs'>
+              <span className='font-bodyFont absolute right-5 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-black'>
                 {productData.length > 0 ? productData.length : 0}
               </span>
             </div>
