@@ -60,7 +60,7 @@ const productData = [
   {
     _id: 104,
     title: "iPhone 14",
-    description: "AT&T iPhone 14 128GB Midnight",
+    description: " 2023 AT&T iPhone 14 128GB Midnight Blue Wi-Fi - (14th Generation)",
     oldPrice: 1745.99,
     price: 1200.0,
     brand: "Apple",

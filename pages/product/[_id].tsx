@@ -50,7 +50,7 @@ const ProductDetails = () => {
               </div>
               <IoMdHeartEmpty className='text-2xl text-gray-600' />
             </div>
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col gap-5'>
               <p className='text-sm underline underline-offset-4'>{product.brand}</p>
               <p className='text-xl font-semibold text-black'>{product.title}</p>
               <p className='text-base font-semibold text-zinc-500'>{product.description}</p>
