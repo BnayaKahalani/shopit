@@ -1,12 +1,8 @@
-import Image from "next/image"
 import { Inter } from "next/font/google"
 import Head from "next/head"
-import Navbar from "../components/Navbar"
 import Banner from "@/components/Banner"
 import { Product } from "../type"
 import Products from "@/components/Products"
-import Footer from "@/components/Footer"
-import TopFooter from "@/components/TopFooter"
 
 interface Props {
   productData: Product
@@ -34,11 +30,10 @@ export default function Home({ productData }: Props) {
         />
       </Head>
       <main className={`${inter.variable} font-sans`}>
-        <div className='max-w-contentContainer mx-auto'>
+        <div className='mx-auto max-w-contentContainer'>
           <Banner />
           <Products productData={productData} />
         </div>
-        <TopFooter />
       </main>
     </>
   )

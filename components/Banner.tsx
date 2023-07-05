@@ -4,14 +4,43 @@ import React from "react"
 import Slider from "react-slick"
 import BannerText from "./BannerText"
 import ButtonPrimary from "./ButtonPrimary"
+import { CgChevronLeft } from "react-icons/cg"
 
 const Banner = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+
+  function SampleNextArrow(props: any) {
+    const { onClick } = props
+    return (
+      <div
+        onClick={onClick}
+        className='absolute left-1 top-1 z-10 flex h-72 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black active:shadow-amazonInput'
+      >
+        <CgChevronLeft className='z-10 text-6xl' />
+        <CgChevronLeft className='absolute left-[12px] text-6xl text-whiteText' />
+      </div>
+    )
+  }
+
+  function SamplePrevArrow(props: any) {
+    const { onClick } = props
+    return (
+      <div
+        onClick={onClick}
+        className='absolute right-1 top-1 z-10 flex h-72 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black active:shadow-amazonInput'
+      >
+        <CgChevronLeft className='z-10 rotate-180 text-6xl' />
+        <CgChevronLeft className='absolute right-[12px] rotate-180 text-6xl text-whiteText' />
+      </div>
+    )
   }
   return (
     <div className='font-titleFont flex w-full gap-4 border-b-[1px] bg-white px-4 py-6'>
