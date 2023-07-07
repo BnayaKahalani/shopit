@@ -1,4 +1,4 @@
-import { bannerImg, sliderImgOne } from "@/public/assets/images"
+import { bannerImg, sliderImgOne, sliderImgTwo } from "@/public/assets/images"
 import Image from "next/image"
 import React from "react"
 import Slider from "react-slick"
@@ -8,7 +8,7 @@ import { CgChevronLeft } from "react-icons/cg"
 
 const Banner = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -22,7 +22,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute left-1 top-1 z-10 flex h-72 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black active:shadow-amazonInput'
+        className='absolute left-1 top-80 z-10 flex h-12 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black active:shadow-amazonInput'
       >
         <CgChevronLeft className='z-10 text-6xl' />
         <CgChevronLeft className='absolute left-[12px] text-6xl text-whiteText' />
@@ -35,7 +35,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute right-1 top-1 z-10 flex h-72 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black active:shadow-amazonInput'
+        className='absolute right-1 top-80 z-20 flex h-12 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black'
       >
         <CgChevronLeft className='z-10 rotate-180 text-6xl' />
         <CgChevronLeft className='absolute right-[12px] rotate-180 text-6xl text-whiteText' />
@@ -48,8 +48,23 @@ const Banner = () => {
         <Slider {...settings}>
           <div className='relative h-[410px] w-full'>
             <Image
+              className='h-full w-full rounded-lg object-cover'
               src={sliderImgOne}
               alt='sliderImgOne'
+              priority
+            />
+            <BannerText
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
+              title='Summer Vibes Unleashed!'
+              description='Embrace the Sun-kissed Style'
+              btnText='SHOP NOW'
+            />
+          </div>
+          <div className='relative h-[410px] w-full'>
+            <Image
+              className='h-full w-full rounded-lg object-cover'
+              src={sliderImgTwo}
+              alt='sliderImgTwo'
               priority
             />
             <BannerText
