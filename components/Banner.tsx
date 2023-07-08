@@ -76,8 +76,8 @@ const Banner = () => {
             />
             <BannerText
               className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
-              title='Summer Vibes Unleashed!'
-              description='Embrace the Sun-kissed Style'
+              title='Up to 65% off'
+              description='New savings every week!'
               btnText='SHOP NOW'
             />
           </div>
@@ -89,9 +89,9 @@ const Banner = () => {
               priority
             />
             <BannerText
-              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
-              title='Summer Vibes Unleashed!'
-              description='Embrace the Sun-kissed Style'
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-black'
+              title='Up to 65% off'
+              description='New savings every week!'
               btnText='SHOP NOW'
             />
           </div>
@@ -103,9 +103,9 @@ const Banner = () => {
               priority
             />
             <BannerText
-              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
-              title='Summer Vibes Unleashed!'
-              description='Embrace the Sun-kissed Style'
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-black'
+              title='Up to 65% off'
+              description='New savings every week!'
               btnText='SHOP NOW'
             />
           </div>
@@ -117,9 +117,9 @@ const Banner = () => {
               priority
             />
             <BannerText
-              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
-              title='Summer Vibes Unleashed!'
-              description='Embrace the Sun-kissed Style'
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-black'
+              title='Up to 65% off'
+              description='New savings every week!'
               btnText='SHOP NOW'
             />
           </div>
