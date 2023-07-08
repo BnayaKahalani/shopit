@@ -1,4 +1,11 @@
-import { bannerImg, sliderImgOne, sliderImgTwo } from "@/public/assets/images"
+import {
+  bannerImg,
+  sliderImgOne,
+  sliderImgTwo,
+  sliderImgThree,
+  sliderImgFour,
+  sliderImgFive,
+} from "@/public/assets/images"
 import Image from "next/image"
 import React from "react"
 import Slider from "react-slick"
@@ -65,6 +72,48 @@ const Banner = () => {
               className='h-full w-full rounded-lg object-cover'
               src={sliderImgTwo}
               alt='sliderImgTwo'
+              priority
+            />
+            <BannerText
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
+              title='Summer Vibes Unleashed!'
+              description='Embrace the Sun-kissed Style'
+              btnText='SHOP NOW'
+            />
+          </div>
+          <div className='relative h-[410px] w-full'>
+            <Image
+              className='h-full w-full rounded-lg object-cover'
+              src={sliderImgThree}
+              alt='sliderImgThree'
+              priority
+            />
+            <BannerText
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
+              title='Summer Vibes Unleashed!'
+              description='Embrace the Sun-kissed Style'
+              btnText='SHOP NOW'
+            />
+          </div>
+          <div className='relative h-[410px] w-full'>
+            <Image
+              className='h-full w-full rounded-lg object-cover'
+              src={sliderImgFour}
+              alt='sliderImgFour'
+              priority
+            />
+            <BannerText
+              className='absolute left-4 top-6 flex h-full w-60 flex-col gap-3 text-white'
+              title='Summer Vibes Unleashed!'
+              description='Embrace the Sun-kissed Style'
+              btnText='SHOP NOW'
+            />
+          </div>
+          <div className='relative h-[410px] w-full'>
+            <Image
+              className='h-full w-full rounded-lg object-cover'
+              src={sliderImgFive}
+              alt='sliderImgFive'
               priority
             />
             <BannerText
