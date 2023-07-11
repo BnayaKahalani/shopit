@@ -28,17 +28,21 @@ const ProductDetails = () => {
     <div className='w-full bg-white'>
       <div className='mx-auto flex max-w-contentContainer items-center py-4'>
         <div className='relative flex h-full w-2/3 items-center justify-center overflow-hidden'>
-          <Image
-            className='transform-origin-top-left curso-move w-[80%] duration-500'
-            width={1000}
-            height={1000}
-            src={product.image}
-            alt='productImg'
-          />
+          {loading ? (
+            <h1>Loading..</h1>
+          ) : (
+            <Image
+              className='transform-origin-top-left curso-move w-[80%] duration-500'
+              width={1000}
+              height={1000}
+              src={product.image}
+              alt='productImg'
+            />
+          )}
         </div>
         <div className='flex h-full w-1/3 flex-col gap-2'>
           <p className='rounded-md border border-gray-400 p-2 text-sm font-semibold text-black'>
-            +500 bought since yesterday
+            <span>{useRandom(500, 1580)}</span> bought since yesterday
           </p>
           <div className='flex flex-col gap-6 rounded-md border border-gray-400 px-2 py-4'>
             <div className='flex items-center justify-between'>
@@ -55,7 +59,7 @@ const ProductDetails = () => {
               <p className='text-xl font-semibold text-black'>{product.title}</p>
               <p className='text-base font-semibold text-zinc-500'>{product.description}</p>
               <div>
-                <div className='flex gap-1'>
+                <div className='flex items-center gap-1'>
                   {useRate(product)}
                   <p>{useRandom(25, 100)}</p>
                 </div>
@@ -71,8 +75,9 @@ const ProductDetails = () => {
               </div>
               <div className='flex flex-col gap-1 text-sm text-black'>
                 <p>
-                  <span className='font-semibold'>$18/mo</span> <span className='font-bold'>withAffirm</span>{" "}
-                  <span className='underline underline-offset-2'>Learn how</span>
+                  <span className='font-semibold'>$18/mo</span>{" "}
+                  <span className='font-semi-bold text-[12px]'>with affirm</span>{" "}
+                  <span className='text-[12px] underline underline-offset-2 hover:cursor-pointer'>Learn how</span>
                 </p>
               </div>
               <div className='border-b-[1px] border-b-zinc-300 pb-4'>
@@ -133,7 +138,7 @@ const ProductDetails = () => {
               </div>
               <p className='text-xs font-bold'>
                 Jerusalem, Shmuel HaNavi st.
-                <span className='ml-1 font-normal underline underline-offset-2'>Change</span>
+                <span className='ml-1 font-normal underline underline-offset-2 hover:cursor-pointer'>Change</span>
               </p>
             </div>
           </div>

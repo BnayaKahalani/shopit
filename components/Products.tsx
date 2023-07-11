@@ -20,15 +20,34 @@ const Products = ({ productData }: any) => {
             className='group mb-6 flex flex-col justify-between border-[1px] border-gray-200 p-2'
             key={item._id}
           >
-            <div className='h-[350px] w-full overflow-hidden p-1'>
-              <Image
-                className='h-full w-full scale-100 object-contain duration-300 group-hover:scale-105'
-                width={300}
-                height={250}
-                src={item.image}
-                alt='itemImage'
-              />
-            </div>
+            <Link
+              href={{
+                pathname: `product/${item._id}`,
+                query: {
+                  _id: item._id,
+                  title: item.title,
+                  description: item.description,
+                  price: item.price,
+                  oldPrice: item.oldPrice,
+                  brand: item.brand,
+                  category: item.category,
+                  image: item.image,
+                  isNew: item.isNew,
+                  rate: item.rate,
+                },
+              }}
+              as={`product/${item._id}`}
+            >
+              <div className='h-[350px] w-full overflow-hidden p-1'>
+                <Image
+                  className='h-full w-full scale-100 object-contain duration-300 group-hover:scale-105'
+                  width={300}
+                  height={250}
+                  src={item.image}
+                  alt='itemImage'
+                />
+              </div>
+            </Link>
             <div className='flex flex-col justify-center px-2 py-4'>
               <div className='flex justify-between py-2'>
                 <button
