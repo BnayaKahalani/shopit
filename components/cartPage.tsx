@@ -128,7 +128,10 @@ const CartPage = () => {
                           Free 30-day returns
                         </p>
                         <div className='mt-2 flex items-center gap-6'>
-                          <button className='text-sm text-zinc-600 underline decoration-[1px] underline-offset-2 duration-300 hover:text-zinc-400 hover:no-underline'>
+                          <button
+                            className='text-sm text-zinc-600 underline decoration-[1px] underline-offset-2 duration-300 hover:text-zinc-400 hover:no-underline'
+                            onClick={() => dispatch(deleteItem(item._id))}
+                          >
                             Remove
                           </button>
                           <div className='flex h-9 w-28 items-center justify-between rounded-full border border-zinc-400 px-3 text-base font-semibold text-black'>

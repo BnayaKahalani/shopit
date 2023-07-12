@@ -119,7 +119,7 @@ const Navbar = () => {
           <Link href='/cart'>
             <div className='relative flex h-12 flex-col items-center justify-center gap-2 rounded-full bg-transparent px-5 duration-300 hover:bg-primary_hover'>
               <BsCart2 className='text-2xl' />
-              <p className='text-[10px]'>${totalAmount}</p>
+              <p className='text-[12px]'>${totalAmount}</p>
               <span className='font-bodyFont absolute right-5 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-black'>
                 {productData.length > 0 ? productData.length : 0}
               </span>
