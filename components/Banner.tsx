@@ -29,10 +29,9 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute left-1 top-80 z-10 flex h-12 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black active:shadow-amazonInput'
+        className='absolute left-4 top-80 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 duration-300'
       >
         <CgChevronLeft className='z-10 text-6xl' />
-        <CgChevronLeft className='absolute left-[12px] text-6xl text-whiteText' />
       </div>
     )
   }
@@ -42,10 +41,9 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute right-1 top-80 z-20 flex h-12 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-transparent duration-300 hover:border-black'
+        className='absolute right-4 top-80 z-20 flex h-12 w-12 cursor-pointer items-center  justify-center rounded-full border-2 border-transparent bg-gray-100 duration-300'
       >
         <CgChevronLeft className='z-10 rotate-180 text-6xl' />
-        <CgChevronLeft className='absolute right-[12px] rotate-180 text-6xl text-whiteText' />
       </div>
     )
   }
