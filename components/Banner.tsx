@@ -29,7 +29,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute left-4 top-80 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 duration-300'
+        className='absolute left-4 top-80 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md duration-300'
       >
         <CgChevronLeft className='z-10 text-6xl' />
       </div>
@@ -41,7 +41,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute right-4 top-80 z-20 flex h-12 w-12 cursor-pointer items-center  justify-center rounded-full border-2 border-transparent bg-gray-100 duration-300'
+        className='absolute right-4 top-80 z-20 flex h-12 w-12 cursor-pointer items-center  justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md duration-300'
       >
         <CgChevronLeft className='z-10 rotate-180 text-6xl' />
       </div>
@@ -49,9 +49,9 @@ const Banner = () => {
   }
   return (
     <div className='font-titleFont flex w-full gap-4 border-b-[1px] bg-white px-4 py-6'>
-      <div className='shadow-bannerShadow relative h-[410px] w-2/3 rounded-lg'>
+      <div className='shadow-bannerShadow relative h-[410px] w-2/3 rounded-lg border-[1px] border-gray-200'>
         <Slider {...settings}>
-          <div className='relative h-[410px] w-full'>
+          <div className='relative h-[409px] w-full'>
             <Image
               className='h-full w-full rounded-lg object-cover'
               src={sliderImgOne}
@@ -65,7 +65,7 @@ const Banner = () => {
               btnText='SHOP NOW'
             />
           </div>
-          <div className='relative h-[410px] w-full'>
+          <div className='relative h-[409px] w-full'>
             <Image
               className='h-full w-full rounded-lg object-cover'
               src={sliderImgTwo}
@@ -79,7 +79,7 @@ const Banner = () => {
               btnText='SHOP NOW'
             />
           </div>
-          <div className='relative h-[410px] w-full'>
+          <div className='relative h-[409px] w-full'>
             <Image
               className='h-full w-full rounded-lg object-cover'
               src={sliderImgThree}
@@ -93,7 +93,7 @@ const Banner = () => {
               btnText='SHOP NOW'
             />
           </div>
-          <div className='relative h-[410px] w-full'>
+          <div className='relative h-[409px] w-full'>
             <Image
               className='h-full w-full rounded-lg object-cover'
               src={sliderImgFour}
@@ -107,7 +107,7 @@ const Banner = () => {
               btnText='SHOP NOW'
             />
           </div>
-          <div className='relative h-[410px] w-full'>
+          <div className='relative h-[409px] w-full'>
             <Image
               className='h-full w-full rounded-lg object-cover'
               src={sliderImgFive}
@@ -134,12 +134,7 @@ const Banner = () => {
           alt='bannerImg'
         />
         <ButtonPrimary btnText='Options' />
-        <p
-          className='font-sem text-lg text-black
-        '
-        >
-          From $50
-        </p>
+        <p className='text-lg font-semibold text-black'>From $50</p>
         <p className='-mt-1 text-base text-gray-500'>Outdoor furniture</p>
       </div>
     </div>
