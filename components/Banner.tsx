@@ -29,7 +29,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute left-4 top-80 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md duration-300'
+        className='absolute left-4 top-80 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md'
       >
         <CgChevronLeft className='z-10 text-6xl' />
       </div>
@@ -41,7 +41,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute right-4 top-80 z-20 flex h-12 w-12 cursor-pointer items-center  justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md duration-300'
+        className='absolute right-4 top-80 z-20 flex h-12 w-12 cursor-pointer items-center  justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md'
       >
         <CgChevronLeft className='z-10 rotate-180 text-6xl' />
       </div>
@@ -126,10 +126,10 @@ const Banner = () => {
       <div className='shadow-bannerShadow flex w-1/3 flex-col justify-between rounded-lg border-[1px] border-gray-200 p-4'>
         <div className='flex items-center justify-between'>
           <h2 className='text-xl font-semibold text-black'>Pick of the day</h2>
-          <p className='text-base text-zinc-600 underline underline-offset-2 hover:cursor-pointer'>View all</p>
+          <p className='text-base text-zinc-600 underline underline-offset-2'>View all</p>
         </div>
         <Image
-          className='h-60 object-cover'
+          className='h-60 rounded-md object-cover'
           src={bannerImg}
           alt='bannerImg'
         />

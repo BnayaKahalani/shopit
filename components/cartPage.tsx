@@ -11,7 +11,8 @@ import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
 import { loadStripe } from "@stripe/stripe-js"
 import axios from "axios"
-import { useSession } from "next-auth/react"
+import { useSession, signIn } from "next-auth/react"
+import useCommas from "@/hooks/useCommas"
 
 const CartPage = () => {
   const { data: session } = useSession()
@@ -55,7 +56,7 @@ const CartPage = () => {
     if (result?.error) alert(result?.error.message)
   }
   return (
-    <div className='w-full py-20'>
+    <div className='w-full py-10'>
       <div className='flex w-full gap-10'>
         <div className='flex w-2/3 flex-col gap-5'>
           <h1 className='text-2xl font-bold text-black'>
@@ -104,6 +105,15 @@ const CartPage = () => {
                 Sold and shipped by <span className='font-semibold text-black'>Shopit.com</span>
               </p>
               <div>
+                {productData.length === 0 && (
+                  <div className='flex items-center justify-center'>
+                    <Image
+                      className='w-[200px]'
+                      src={emptyCart}
+                      alt='emptyCart'
+                    />
+                  </div>
+                )}
                 {productData.map((item: StoreProduct) => (
                   <div
                     key={item._id}
@@ -135,11 +145,17 @@ const CartPage = () => {
                             Remove
                           </button>
                           <div className='flex h-9 w-28 items-center justify-between rounded-full border border-zinc-400 px-3 text-base font-semibold text-black'>
-                            <button className='flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-base text-zinc-600 duration-200 hover:bg-zinc-400 hover:text-white'>
+                            <button
+                              onClick={() => dispatch(minusQuantity(item))}
+                              className='flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-base text-zinc-600 duration-200 hover:bg-zinc-400 hover:text-white'
+                            >
                               <HiMinusSmall />
                             </button>
                             <span>{item.quantity}</span>
-                            <button className='flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-base text-zinc-600 duration-200 hover:bg-zinc-400 hover:text-white'>
+                            <button
+                              onClick={() => dispatch(plusQuantity(item))}
+                              className='flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-base text-zinc-600 duration-200 hover:bg-zinc-400 hover:text-white'
+                            >
                               <MdOutlineAdd />
                             </button>
                           </div>
@@ -172,7 +188,7 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-        <div className='mt-24 flex h-[500px] w-1/3 flex-col justify-center gap-4 rounded-md border-[1px] border-zinc-400 p-4'>
+        <div className='mt-12 flex h-[500px] w-1/3 flex-col justify-center gap-4 rounded-md border-[1px] border-zinc-400 p-4'>
           <div className='flex w-full flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             {!userInfo ? (
               <button
@@ -204,7 +220,12 @@ const CartPage = () => {
             {!userInfo && (
               <p className='text-center text-sm'>
                 For the best shopping experience{" "}
-                <span className='underline decoration-[1px] underline-offset-2'>sign in</span>
+                <span
+                  onClick={() => signIn()}
+                  className='underline decoration-[1px] underline-offset-2 hover:cursor-pointer'
+                >
+                  sign in
+                </span>
               </p>
             )}
           </div>

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux"
 import toast, { Toaster } from "react-hot-toast"
 import useRandom from "@/hooks/useRandom"
 import useRate from "@/hooks/useRate"
+import useCommas from "@/hooks/useCommas"
 
 const ProductDetails = () => {
   const router = useRouter()
@@ -77,7 +78,7 @@ const ProductDetails = () => {
                 <p>
                   <span className='font-semibold'>$18/mo</span>{" "}
                   <span className='font-semi-bold text-[12px]'>with affirm</span>{" "}
-                  <span className='text-[12px] underline underline-offset-2 hover:cursor-pointer'>Learn how</span>
+                  <span className='text-[12px] underline underline-offset-2'>Learn how</span>
                 </p>
               </div>
               <div className='border-b-[1px] border-b-zinc-300 pb-4'>
@@ -138,7 +139,7 @@ const ProductDetails = () => {
               </div>
               <p className='text-xs font-bold'>
                 Jerusalem, Shmuel HaNavi st.
-                <span className='ml-1 font-normal underline underline-offset-2 hover:cursor-pointer'>Change</span>
+                <span className='ml-1 font-normal underline underline-offset-2'>Change</span>
               </p>
             </div>
           </div>

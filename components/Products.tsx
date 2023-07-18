@@ -8,6 +8,7 @@ import { addToCart } from "@/redux/shopperSlice"
 import toast, { Toaster } from "react-hot-toast"
 import useRandom from "@/hooks/useRandom"
 import useRate from "@/hooks/useRate"
+import useCommas from "@/hooks/useCommas"
 
 const Products = ({ productData }: any) => {
   const dispatch = useDispatch()
@@ -100,8 +101,8 @@ const Products = ({ productData }: any) => {
                 </Link>
               </div>
               <div className='flex items-center gap-3'>
-                <p className='font-titleFont text-lg font-semibold text-green-700'>Now ${item.price}</p>
-                <p className='decoration text-gray-500 line-through'>${item.oldPrice}</p>
+                <p className='font-titleFont text-lg font-semibold text-green-700'>Now ${useCommas(item.price)}</p>
+                <p className='decoration text-gray-500 line-through'>${useCommas(item.oldPrice)}</p>
               </div>
               <p className='font-titleFont py-2 text-lg font-semibold'>{item.title.substring(0, 25)}</p>
               <p className='text-base text-zinc-500'>{item.description.substring(0, 80)}...</p>

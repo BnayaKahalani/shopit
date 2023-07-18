@@ -8,9 +8,12 @@ interface Props {
 const BannerText = ({ title, description, btnText, className }: Props) => {
   return (
     <div className={className}>
-      <h1 className='font-bold text-2xl'>{title}</h1>
+      <h1 className='text-2xl font-bold'>{title}</h1>
       <p className='text-sm leading-5'>{description}</p>
-      <button className='bg-white text-sm text-black font-semibold rounded-full w-24 h-8 border-[1px]'>
+      <button
+        className='h-8 w-24 rounded-full border-[1px] bg-white text-sm font-semibold text-black'
+        disabled
+      >
         {btnText}
       </button>
     </div>

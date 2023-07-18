@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <div className='w-full bg-primary text-white pt-4 pb-6'>
-      <div className='max-w-contentContainer mx-auto'>
-        <ul className='w-full flex flex-wrap gap-1 justify-center text-sm text-zinc-200'>
-          <li className='hover: text-white duration-200 ml-2 cursor-pointer'>All Departments</li>
-          <li className='hover: text-white duration-200 ml-2 cursor-pointer'>Contact</li>
-          <li className='hover: text-white duration-200 ml-2 cursor-pointer'>Career</li>
+    <div className='w-full bg-primary pb-6 pt-4 text-white'>
+      <div className='mx-auto max-w-contentContainer'>
+        <ul className='flex w-full flex-wrap justify-center gap-1 text-sm text-zinc-200'>
+          <li className='hover: ml-2 text-white duration-200'>All Departments</li>
+          <li className='hover: ml-2 text-white duration-200'>Contact</li>
+          <li className='hover: ml-2 text-white duration-200'>Career</li>
         </ul>
       </div>
     </div>

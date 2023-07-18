@@ -9,6 +9,7 @@ import Link from "next/link"
 import { useDispatch, useSelector } from "react-redux"
 import { useSession, signIn, signOut } from "next-auth/react"
 import { addUser, removeUser } from "@/redux/shopperSlice"
+import useCommas from "@/hooks/useCommas"
 
 const Navbar = () => {
   const { data: session } = useSession()

@@ -4,7 +4,10 @@ type Props = {
 
 const ButtonPrimary = ({ btnText }: Props) => {
   return (
-    <button className='w-20 h-7 text-sm font-semibold rounded-full bg-primary text-white hover:bg-primary_hover duration-300'>
+    <button
+      className='h-7 w-20 rounded-full bg-primary text-sm font-semibold text-white duration-300'
+      disabled
+    >
       {btnText}
     </button>
   )
