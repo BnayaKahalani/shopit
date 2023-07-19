@@ -1,6 +1,6 @@
 import logo from "./logo.png";
 import phoneImg from "./phoneImg.webp";
-import sliderImgOne from "./slider/sliderImgOne.webp";
+import sliderImgOne from "./slider/sliderImgOne.jpg";
 import sliderImgTwo from "./slider/sliderImgTwo.webp";
 import sliderImgThree from "./slider/sliderImgThree.webp";
 import sliderImgFour from "./slider/sliderImgFour.webp";

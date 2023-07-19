@@ -25,6 +25,9 @@ const ProductDetails = () => {
 
   const _id = Number(product._id)
 
+  // const formattedPrice = useCommas(product.price)
+  // const formattedOldPrice = useCommas(product.oldPrice)
+
   return (
     <div className='w-full bg-white'>
       <div className='mx-auto flex max-w-contentContainer items-center py-4'>
