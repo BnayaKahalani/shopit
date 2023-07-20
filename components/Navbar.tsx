@@ -1,7 +1,7 @@
 import logo from "../public/assets/images/logo.png"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
-import { IoSearchOutline } from "react-icons/io5"
+import SearchBar from "./SearchBar"
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { BsCart2 } from "react-icons/bs"
 import NavbarBottom from "./NavbarBottom"
@@ -73,22 +73,14 @@ const Navbar = () => {
             </div>
             <p className='text-base font-semibold'>Services</p>
           </div>
-          <div className='relative flex h-10 flex-1'>
-            <input
-              className='duration 200 h-full w-full rounded-full border-[1px] border-transparent px-4 text-base text-black outline-none focus-visible:border-black'
-              type='text'
-              placeholder='Search at Shopit'
-            />
-            <span className='txt-black absolute right-1 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500 text-xl'>
-              <IoSearchOutline />
-            </span>
-          </div>
+          <SearchBar options={productData} />
           <div className='navbarHover'>
             <AiOutlineHeart />
             <div>
               <p className='text-xs'>Recorder</p>
               <h2 className='-mt-1 text-base font-semibold'>My Items</h2>
             </div>
+            S S
           </div>
           {userInfo ? (
             <div
