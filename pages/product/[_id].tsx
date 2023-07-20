@@ -46,7 +46,7 @@ const ProductDetails = () => {
         </div>
         <div className='flex h-full w-1/3 flex-col gap-2'>
           <p className='rounded-md border border-gray-400 p-2 text-sm font-semibold text-black'>
-            <span>{useRandom(500, 1580)}</span> bought since yesterday
+            <span>{useCommas(useRandom(500, 1580))}</span> bought since yesterday
           </p>
           <div className='flex flex-col gap-6 rounded-md border border-gray-400 px-2 py-4'>
             <div className='flex items-center justify-between'>

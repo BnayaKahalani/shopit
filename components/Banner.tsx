@@ -29,7 +29,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute left-4 top-80 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md'
+        className='absolute left-4 top-80 z-10 flex h-12 w-12 transform cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md duration-200 hover:scale-110'
       >
         <CgChevronLeft className='z-10 text-6xl' />
       </div>
@@ -41,7 +41,7 @@ const Banner = () => {
     return (
       <div
         onClick={onClick}
-        className='absolute right-4 top-80 z-20 flex h-12 w-12 cursor-pointer items-center  justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md'
+        className='absolute right-4 top-80 z-20 flex h-12 w-12 transform cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-gray-100 shadow-md duration-200 hover:scale-110'
       >
         <CgChevronLeft className='z-10 rotate-180 text-6xl' />
       </div>
