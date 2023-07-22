@@ -73,14 +73,13 @@ const Navbar = () => {
             </div>
             <p className='text-base font-semibold'>Services</p>
           </div>
-          <SearchBar options={productData} />
+          <SearchBar />
           <div className='navbarHover'>
             <AiOutlineHeart />
             <div>
               <p className='text-xs'>Recorder</p>
               <h2 className='-mt-1 text-base font-semibold'>My Items</h2>
             </div>
-            S S
           </div>
           {userInfo ? (
             <div
