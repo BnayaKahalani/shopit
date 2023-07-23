@@ -26,7 +26,6 @@ export default function Home({ productData }: Props) {
         <link
           rel='icon'
           href='favicon.png'
-          // <a target="_blank" href="https://icons8.com/icon/44049/shop">Shop</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         />
       </Head>
       <main className={`${inter.variable} font-sans`}>

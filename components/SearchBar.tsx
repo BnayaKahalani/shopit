@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react"
 import { IoSearchOutline } from "react-icons/io5"
 import { Product } from "../type"
-import Products from "@/components/Products"
 
-// interface Props {
-//   productData: Product
-// }
-
-const SearchBar = ({ Products }: any) => {
-  console.log("options from SearchBar", productData)
+const SearchBar = () => {
+  const [productData, setProductData] = useState<Product[]>([])
   const [term, setTerm] = useState("")
   const [showOptions, setShowOptions] = useState(false)
 
@@ -16,10 +11,22 @@ const SearchBar = ({ Products }: any) => {
     setTerm(target.value.trimStart())
   }
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/productdata")
+      const data = await response.json()
+      setProductData(data)
+    } catch (error) {
+      console.error("Error fetching data:", error)
+    }
+  }
+
   useEffect(() => {
+    fetchData()
     if (term) setShowOptions(true)
     else setShowOptions(false)
   }, [term])
+  console.log("productData", productData)
 
   const handleClick = (option: any) => {
     console.log("You clicked:", option)
@@ -55,9 +62,17 @@ const SearchBar = ({ Products }: any) => {
           <IoSearchOutline />
         </span>
       </div>
-      {showOptions && <div className='absolute'>{renderedOptions}</div>}
+      {/* {showOptions && <div className='absolute'>{renderedOptions}</div>} */}
     </>
   )
 }
 
 export default SearchBar
+
+export const getServerSideProps = async () => {
+  const productData = await (await fetch("http://localhost:3000/api/productdata")).json()
+
+  return {
+    props: { productData },
+  }
+}
