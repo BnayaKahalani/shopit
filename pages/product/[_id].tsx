@@ -15,26 +15,18 @@ const ProductDetails = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const [product, setProduct] = useState<any>({})
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
     setProduct(router.query)
-    setLoading(false)
   }, [])
 
   const _id = Number(product._id)
-
-  // const formattedPrice = useCommas(product.price)
-  // const formattedOldPrice = useCommas(product.oldPrice)
 
   return (
     <div className='w-full bg-white'>
       <div className='mx-auto flex max-w-contentContainer items-center py-4'>
         <div className='relative flex h-full w-2/3 items-center justify-center overflow-hidden'>
-          {loading ? (
-            <h1>Loading..</h1>
-          ) : (
+          {product.image ? (
             <Image
               className='transform-origin-top-left curso-move w-[80%] duration-500'
               width={1000}
@@ -42,6 +34,8 @@ const ProductDetails = () => {
               src={product.image}
               alt='productImg'
             />
+          ) : (
+            <p>No image available</p>
           )}
         </div>
         <div className='flex h-full w-1/3 flex-col gap-2'>

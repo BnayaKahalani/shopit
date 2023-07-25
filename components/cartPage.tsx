@@ -9,14 +9,13 @@ import Image from "next/image"
 import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
-import { loadStripe } from "@stripe/stripe-js"
 import axios from "axios"
 import { useSession, signIn } from "next-auth/react"
 
 const CartPage = () => {
   const { data: session } = useSession()
   const dispatch = useDispatch()
-  const stripePromise = loadStripe(process.env.stripe_public_key)
+
   const productData = useSelector((state: any) => state.shopper.productData)
   const userInfo = useSelector((state: any) => state.shopper.userInfo)
   const [warningMsg, setWarningMsg] = useState(false)
@@ -42,17 +41,10 @@ const CartPage = () => {
   }, [productData])
 
   const handleCheckout = async () => {
-    const stripe = await stripePromise
-
     const checkoutSession = await axios.post("api/create-checkout-session", {
       items: productData,
       email: session?.user?.email,
     })
-
-    const result: any = await stripe?.redirectToCheckout({
-      sessionId: checkoutSession.data.id,
-    })
-    if (result?.error) alert(result?.error.message)
   }
   return (
     <div className='w-full py-10'>
@@ -191,8 +183,8 @@ const CartPage = () => {
           <div className='flex w-full flex-col gap-4 border-b-[1px] border-b-zinc-200 pb-4'>
             {!userInfo ? (
               <button
-                onClick={handleCheckout}
                 className='h-10 w-full rounded bg-primary font-semibold text-white duration-300 hover:bg-primary_hover'
+                disabled
               >
                 Continue to checkout
               </button>
