@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 import { IoSearchOutline } from "react-icons/io5"
 import { Product } from "../type"
-import { useDispatch } from "react-redux"
+import Link from "next/link"
 
 const SearchBar = () => {
-  const dispatch = useDispatch()
-
   const [productData, setProductData] = useState<Product[]>([])
   const [term, setTerm] = useState("")
   const [showOptions, setShowOptions] = useState(false)
@@ -31,7 +29,7 @@ const SearchBar = () => {
   }, [term])
 
   const handleClick = (option: any) => {
-    console.log("You clicked:", option)
+    setTerm("")
   }
 
   const renderedOptions = productData
@@ -42,10 +40,30 @@ const SearchBar = () => {
     .map((option: any) => {
       return (
         <article
+          className='[ border-b-[0.5px] border-white  p-2'
           key={option._id}
           onClick={() => handleClick(option)}
         >
-          {option.title.substring(0, 45) + "..."}
+          <Link
+            href={{
+              pathname: `product/${option._id}`,
+              query: {
+                _id: option._id,
+                title: option.title,
+                description: option.description,
+                price: option.price,
+                oldPrice: option.oldPrice,
+                brand: option.brand,
+                category: option.category,
+                image: option.image,
+                isNew: option.isNew,
+                rate: option.rate,
+              },
+            }}
+            as={`product/${option._id}`}
+          >
+            {option.title.substring(0, 45) + "..."}
+          </Link>
         </article>
       )
     })

@@ -12,7 +12,6 @@ import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/sho
 import { loadStripe } from "@stripe/stripe-js"
 import axios from "axios"
 import { useSession, signIn } from "next-auth/react"
-import useCommas from "@/hooks/useCommas"
 
 const CartPage = () => {
   const { data: session } = useSession()

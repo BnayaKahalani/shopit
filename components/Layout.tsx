@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import { ReactElement } from "react"
 import Navbar from "./Navbar"
 import TopFooter from "./TopFooter"
 import Footer from "./Footer"

@@ -1,5 +1,3 @@
-import React from "react"
-
 const TopFooter = () => {
   return (
     <div className='w-full bg-amber-50'>

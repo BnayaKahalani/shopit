@@ -1,6 +1,6 @@
 import logo from "../public/assets/images/logo.png"
 import Image from "next/image"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import SearchBar from "./SearchBar"
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { BsCart2 } from "react-icons/bs"
@@ -77,7 +77,7 @@ const Navbar = () => {
           <div className='navbarHover'>
             <AiOutlineHeart />
             <div>
-              <p className='text-xs'>Recorder</p>
+              <p className='text-xs'>Wishlist</p>
               <h2 className='-mt-1 text-base font-semibold'>My Items</h2>
             </div>
           </div>
