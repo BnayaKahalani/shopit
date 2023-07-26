@@ -26,7 +26,7 @@ const NavbarBottom = () => {
         </div>
       </div>
       <ul className='flex gap-6 text-sm font-semibold'>
-        <li className='bottomNavLi'>What\'s new?</li>
+        <li className='bottomNavLi'>What&apos;s new?</li>
         <li className='bottomNavLi'>Flash Deals</li>
       </ul>
     </div>

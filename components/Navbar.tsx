@@ -44,7 +44,7 @@ const Navbar = () => {
   const formattedTotalAmount = useCommas(totalAmount)
 
   return (
-    <div className='sticky top-0 z-10 w-full bg-primary text-white'>
+    <div className='sticky top-0 z-20 w-full bg-primary text-white'>
       <div className='h-full w-full border-b-[1px] border-b-white'>
         <div className='mx-auto flex h-20 max-w-container items-center gap-2 px-4'>
           <Link href='/'>
