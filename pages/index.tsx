@@ -38,7 +38,7 @@ export default function Home({ productData }: Props) {
   )
 }
 
-const API = process.env.NODE_ENV === "production" ? "/" : "http://localhost:3000/"
+const API = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000/"
 
 export const getServerSideProps = async () => {
   const productData = await (await fetch(`${API}api/productdata`)).json()
