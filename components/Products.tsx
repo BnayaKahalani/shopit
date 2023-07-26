@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast"
 import useRandom from "@/hooks/useRandom"
 import useRate from "@/hooks/useRate"
 import useCommas from "@/hooks/useCommas"
+import ProductRate from "./ProductRate"
 
 const Products = ({ productData }: any) => {
   const dispatch = useDispatch()
@@ -101,18 +102,19 @@ const Products = ({ productData }: any) => {
                 </Link>
               </div>
               <div className='flex items-center gap-3'>
-                <p className='font-titleFont text-lg font-semibold text-green-700'>Now ${useCommas(item.price)}</p>
-                <p className='decoration text-gray-500 line-through'>${useCommas(item.oldPrice)}</p>
+                {/* <p className='font-titleFont text-lg font-semibold text-green-700'>Now ${useCommas(item.price)}</p>
+                <p className='decoration text-gray-500 line-through'>${useCommas(item.oldPrice)}</p> */}
               </div>
               <p className='font-titleFont py-2 text-lg font-semibold'>{item.title.substring(0, 25)}</p>
               <p className='text-base text-zinc-500'>{item.description.substring(0, 80)}...</p>
             </div>
-            <div className='mt-2 flex items-center justify-between gap-2 text-sm'>
+            <ProductRate product={item} />
+            {/* <div className='mt-2 flex items-center justify-between gap-2 text-sm'>
               <div className='flex items-center justify-center gap-1 text-sm'>
                 {useRate(item)}
                 <p>{useRandom(25, 100)}</p>
               </div>
-            </div>
+            </div> */}
           </div>
         )
       })}
