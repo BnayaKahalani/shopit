@@ -6,13 +6,27 @@ import Link from "next/link"
 import { useDispatch } from "react-redux"
 import { addToCart } from "@/redux/shopperSlice"
 import toast, { Toaster } from "react-hot-toast"
-import useRandom from "@/hooks/useRandom"
-import useRate from "@/hooks/useRate"
-import useCommas from "@/hooks/useCommas"
 import ProductRate from "./ProductRate"
+import FormattedPrice from "./FormattedPrice"
 
 const Products = ({ productData }: any) => {
   const dispatch = useDispatch()
+
+  const handleAddClick = (item: any) => {
+    return dispatch(
+      addToCart({
+        _id: item._id,
+        title: item.title,
+        description: item.description,
+        image: item.image,
+        price: item.price,
+        oldPrice: item.oldPrice,
+        quantity: 1,
+        brand: item.brand,
+        category: item.category,
+      })
+    )
+  }
 
   return (
     <div className='grid grid-cols-4 gap-4 px-4 py-6'>
@@ -53,21 +67,7 @@ const Products = ({ productData }: any) => {
             <div className='flex flex-col justify-center px-2 py-4'>
               <div className='flex justify-between py-2'>
                 <button
-                  onClick={() =>
-                    dispatch(
-                      addToCart({
-                        _id: item._id,
-                        title: item.title,
-                        description: item.description,
-                        image: item.image,
-                        price: item.price,
-                        oldPrice: item.oldPrice,
-                        quantity: 1,
-                        brand: item.brand,
-                        category: item.category,
-                      })
-                    ) && toast.success(`${item.title.substring(0, 20)} is add to cart`)
-                  }
+                  onClick={() => handleAddClick(item) && toast.success(`${item.title.substring(0, 20)} is add to cart`)}
                   className='flex h-9 w-20 items-center justify-center gap-1 rounded-full bg-primary text-white duration-200 hover:bg-primary_hover'
                 >
                   <span>
@@ -102,19 +102,17 @@ const Products = ({ productData }: any) => {
                 </Link>
               </div>
               <div className='flex items-center gap-3'>
-                {/* <p className='font-titleFont text-lg font-semibold text-green-700'>Now ${useCommas(item.price)}</p>
-                <p className='decoration text-gray-500 line-through'>${useCommas(item.oldPrice)}</p> */}
+                <p className='font-titleFont text-lg font-semibold text-green-700'>
+                  Now <FormattedPrice amount={item.price} />
+                </p>
+                <p className='decoration text-gray-500 line-through'>
+                  <FormattedPrice amount={item.oldPrice} />
+                </p>
               </div>
               <p className='font-titleFont py-2 text-lg font-semibold'>{item.title.substring(0, 25)}</p>
               <p className='text-base text-zinc-500'>{item.description.substring(0, 80)}...</p>
             </div>
             <ProductRate product={item} />
-            {/* <div className='mt-2 flex items-center justify-between gap-2 text-sm'>
-              <div className='flex items-center justify-center gap-1 text-sm'>
-                {useRate(item)}
-                <p>{useRandom(25, 100)}</p>
-              </div>
-            </div> */}
           </div>
         )
       })}

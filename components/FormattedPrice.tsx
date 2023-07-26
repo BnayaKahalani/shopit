@@ -1,12 +1,13 @@
-type Amount = {
-  amount: Number
+interface IProps {
+  amount: number
+  precision?: boolean
 }
 
-const FormattedPrice = ({ amount }: Amount) => {
+const FormattedPrice = ({ amount, precision = false }: IProps) => {
   const formattedAmount = new Number(amount).toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 2,
+    minimumFractionDigits: precision ? 2 : 0,
   })
   return <span>{formattedAmount}</span>
 }

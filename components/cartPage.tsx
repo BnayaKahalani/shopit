@@ -155,15 +155,24 @@ const CartPage = () => {
                     </div>
                     <div className='flex w-1/4 flex-col items-end gap-1 text-right'>
                       <p className='text-xl font-semibold text-green-500'>
-                        <FormattedPrice amount={item.price * item.quantity} />
+                        <FormattedPrice
+                          amount={item.price * item.quantity}
+                          precision
+                        />
                       </p>
                       <p className='text-sm text-zinc-500 line-through'>
-                        <FormattedPrice amount={item.oldPrice * item.quantity} />
+                        <FormattedPrice
+                          amount={item.oldPrice * item.quantity}
+                          precision
+                        />
                       </p>
                       <div className='flex items-center gap-2 text-xs'>
                         <p className='bg-green-200 px-2 py-[1px] text-[8px] uppercase'>You save </p>
                         <p className='font-semibold text-green-500'>
-                          <FormattedPrice amount={item.oldPrice * item.quantity - item.price * item.quantity} />
+                          <FormattedPrice
+                            amount={item.oldPrice * item.quantity - item.price * item.quantity}
+                            precision
+                          />
                         </p>
                       </div>
                     </div>
@@ -227,13 +236,20 @@ const CartPage = () => {
                   Subtotal <span>{productData.length} items</span>
                 </p>
                 <p className='text-base text-zinc-500 line-through'>
-                  <FormattedPrice amount={totalOldPrice} />
+                  <FormattedPrice
+                    amount={totalOldPrice}
+                    precision
+                  />
                 </p>
               </div>
               <div className='flex justify-between text-sm'>
                 <p className='font-semibold'>Savings</p>
                 <p className='flex rounded-lg bg-green-100 px-[2px] py-1 font-bold text-green-500'>
-                  -<FormattedPrice amount={totalSavings} />
+                  -
+                  <FormattedPrice
+                    amount={totalSavings}
+                    precision
+                  />
                 </p>
               </div>
             </div>
@@ -253,7 +269,10 @@ const CartPage = () => {
           <div className='flex items-center justify-between'>
             <p>Estimated total</p>
             <p className='text-lg font-bold text-zinc-800'>
-              <FormattedPrice amount={amt} />
+              <FormattedPrice
+                amount={amt}
+                precision
+              />
             </p>
           </div>
         </div>
