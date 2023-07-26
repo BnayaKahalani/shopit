@@ -3,6 +3,8 @@ import { IoSearchOutline } from "react-icons/io5"
 import { Product } from "../type"
 import Link from "next/link"
 
+const API = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000"
+
 const SearchBar = () => {
   const [productData, setProductData] = useState<Product[]>([])
   const [term, setTerm] = useState("")
@@ -14,7 +16,7 @@ const SearchBar = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/productdata")
+      const response = await fetch(`${API}/api/productdata`)
       const data = await response.json()
       setProductData(data)
     } catch (error) {
