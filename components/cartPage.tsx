@@ -10,10 +10,8 @@ import { StoreProduct } from "@/type"
 import FormattedPrice from "./FormattedPrice"
 import { plusQuantity, minusQuantity, deleteItem, resetCart } from "../redux/shopperSlice"
 import axios from "axios"
-import { useSession, signIn } from "next-auth/react"
 
 const CartPage = () => {
-  const { data: session } = useSession()
   const dispatch = useDispatch()
 
   const productData = useSelector((state: any) => state.shopper.productData)
@@ -43,7 +41,6 @@ const CartPage = () => {
   const handleCheckout = async () => {
     const checkoutSession = await axios.post("api/create-checkout-session", {
       items: productData,
-      email: session?.user?.email,
     })
   }
   return (
@@ -220,12 +217,7 @@ const CartPage = () => {
             {!userInfo && (
               <p className='text-center text-sm'>
                 For the best shopping experience{" "}
-                <span
-                  onClick={() => signIn()}
-                  className='underline decoration-[1px] underline-offset-2 hover:cursor-pointer'
-                >
-                  sign in
-                </span>
+                <span className='underline decoration-[1px] underline-offset-2 hover:cursor-pointer'>sign in</span>
               </p>
             )}
           </div>
