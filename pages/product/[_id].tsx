@@ -18,9 +18,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setProduct(router.query)
-  }, [])
-
-  const _id = Number(product._id)
+  }, [router.query])
 
   return (
     <div className='w-full bg-white'>
