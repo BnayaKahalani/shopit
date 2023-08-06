@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setProduct(router.query)
-  }, [router.query])
+  }, [])
 
   return (
     <div className='w-full bg-white'>

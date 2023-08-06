@@ -93,7 +93,7 @@ const Products = ({ productData }: any) => {
                   }}
                   as={`product/${item._id}`}
                 >
-                  <button className='flex h-9 w-24 items-center justify-center gap-1 rounded-full border-[1px] border-black bg-white text-black duration-200 hover:bg-primary_hover hover:text-white'>
+                  <button className='flex h-9 w-24 items-center justify-center gap-1 rounded-full border-[1px] border-black bg-white text-black duration-200 hover:border-none hover:bg-primary_hover hover:text-white'>
                     <span>
                       <GoPlus />
                     </span>

@@ -7,30 +7,30 @@ import { BsCart2 } from "react-icons/bs"
 import NavbarBottom from "./NavbarBottom"
 import Link from "next/link"
 import { useDispatch, useSelector } from "react-redux"
-import { useSession, signIn, signOut } from "next-auth/react"
+// import { useSession, signIn, signOut } from "next-auth/react"
 import { addUser, removeUser } from "@/redux/shopperSlice"
 import useCommas from "@/hooks/useCommas"
 
 const Navbar = () => {
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
   const dispatch = useDispatch()
   const productData = useSelector((state: any) => state.shopper.productData)
   const userInfo = useSelector((state: any) => state.shopper.userInfo)
   const [totalAmount, setTotalAmount] = useState("0")
 
-  useEffect(() => {
-    if (session) {
-      dispatch(
-        addUser({
-          name: session.user?.name,
-          email: session.user?.email,
-          image: session.user?.image,
-        })
-      )
-    } else {
-      dispatch(removeUser())
-    }
-  }, [session, dispatch])
+  // useEffect(() => {
+  //   if (session) {
+  //     dispatch(
+  //       addUser({
+  //         name: session.user?.name,
+  //         email: session.user?.email,
+  //         image: session.user?.image,
+  //       })
+  //     )
+  //   } else {
+  //     dispatch(removeUser())
+  //   }
+  // }, [session, dispatch])
 
   useEffect(() => {
     let price = 0
@@ -83,7 +83,7 @@ const Navbar = () => {
           </div>
           {userInfo ? (
             <div
-              onClick={() => signOut()}
+              // onClick={() => signOut()}
               className='navbarHover'
             >
               <Image
@@ -100,7 +100,7 @@ const Navbar = () => {
             </div>
           ) : (
             <div
-              onClick={() => signIn()}
+              // onClick={() => signIn()}
               className='navbarHover'
             >
               <AiOutlineUser className='text-lg' />
