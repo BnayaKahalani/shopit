@@ -4,7 +4,7 @@
 
 In this project, I explored the Next.js React framework through the process of building an E-commerce website.
 
-[Click here to see the result.]()
+[Click here to see the result.](https://shopit-phi.vercel.app/)
 
 Tools I used: Next.js, Tailwind, TypeScript, Redux Toolkit, React Persist, React Slick and Firebase.
 
@@ -27,6 +27,6 @@ React Persist has been instrumental in ensuring a seamless user experience. Pers
 
 React Slick has added a touch of elegance to the website by offering a smooth and interactive carousel for showcasing products. This dynamic presentation has enhanced the overall visual appeal and engagement for visitors.
 
-Firebase real-time database and authentication services have allowed for smooth user registration, login, and secure data storage. Additionally, the scalability of Firebase ensures the website can handle increasing traffic without compromising on performance.
+Firebase real-time database ensures the website can handle increasing traffic without compromising on performance.
 
 Overall, building Shopit E-commerce website has been an enriching experience. I've gained valuable insights into the power of these cutting-edge technologies, and their seamless integration has resulted in a feature-rich, high-performing, and visually appealing e-commerce platform.
