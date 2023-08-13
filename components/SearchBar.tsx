@@ -3,7 +3,7 @@ import { IoSearchOutline } from "react-icons/io5"
 import { Product } from "../type"
 import Link from "next/link"
 
-const API = process.env.NODE_ENV === "production" ? "www.shopit-phi.vercel.app/" : "http://localhost:3000/"
+// const API = process.env.NODE_ENV === "production" ? "www.shopit-phi.vercel.app/" : "http://localhost:3000/"
 
 const SearchBar = () => {
   const [productData, setProductData] = useState<Product[]>([])
@@ -98,3 +98,13 @@ const SearchBar = () => {
 }
 
 export default SearchBar
+
+const API = process.env.NODE_ENV === "production" ? "https://shopit-phi.vercel.app/" : "http://localhost:3000/"
+
+export const getServerSideProps = async () => {
+  const productData = await (await fetch(`${API}api/productdata`)).json()
+
+  return {
+    props: { productData },
+  }
+}
